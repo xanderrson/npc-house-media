@@ -31,11 +31,6 @@
       font-weight: 700;
       letter-spacing: -3px;
       transition: all 0.4s ease;
-      cursor: default;
-    }
-    h1:hover {
-      transform: scale(1.05);
-      text-shadow: 0 0 50px rgba(0, 204, 255, 0.9);
     }
     .tagline {
       font-size: 1.9rem;
@@ -44,14 +39,8 @@
     }
     section {
       padding: 90px 20px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-    }
-    h2 {
-      font-size: 2.8rem;
-      text-align: center;
-      color: #0066ff;
-      margin-bottom: 60px;
     }
     .about {
       background: white;
@@ -61,20 +50,29 @@
     }
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 30px;
     }
     .card {
       background: white;
       border-radius: 24px;
-      padding: 40px 25px;
-      text-align: center;
+      overflow: hidden;
       box-shadow: 0 15px 40px rgba(0,102,255,0.1);
       transition: all 0.4s ease;
     }
     .card:hover {
-      transform: translateY(-20px);
-      box-shadow: 0 25px 60px rgba(0,102,255,0.18);
+      transform: translateY(-15px);
+      box-shadow: 0 25px 60px rgba(0,102,255,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-content {
+      padding: 25px;
+      text-align: center;
     }
     footer {
       text-align: center;
@@ -104,28 +102,46 @@
     <h2>Recent Work</h2>
     <div class="portfolio-grid">
       <div class="card">
-        <h3>On-Site Editing</h3>
-        <a href="https://www.dropbox.com/scl/fo/8nymescozy6i6rhnqlpx7/AMWPmno475W8KkdO4KBbeLs?rlkey=7rxbaybgsor897bryz0hi4lv6&st=s9s8uisf&dl=0" target="_blank">View Folder →</a>
+        <img src="https://www.dropbox.com/scl/fi/fkr6pc77kv6bli75kqy8h/Lightning-in-a-Bottle-Woogie-Stage.jpg?rlkey=xy0xhyn5lg9b49csz1bldib9u&raw=1" alt="On-Site Editing">
+        <div class="card-content">
+          <h3>On-Site Editing</h3>
+          <a href="https://www.dropbox.com/scl/fo/8nymescozy6i6rhnqlpx7/AMWPmno475W8KkdO4KBbeLs?rlkey=7rxbaybgsor897bryz0hi4lv6&st=s9s8uisf&dl=0" target="_blank">View Folder →</a>
+        </div>
       </div>
       <div class="card">
-        <h3>Performance Clips</h3>
-        <a href="https://www.dropbox.com/scl/fo/8guvlxq1w7za1twiyo6k8/ADVD-a2oReC-yHLgR7jlD7A?rlkey=4340kpsygs21d9uy9c2ls2zk2&st=q884b7ri&dl=0" target="_blank">View Folder →</a>
+        <img src="https://www.dropbox.com/scl/fi/cjp5sjj0za6n8fr7buof2/Mochakk-The-Torch-1.jpg?rlkey=rwklzn23ey78661xzmwgi7e70&raw=1" alt="Performance Clips">
+        <div class="card-content">
+          <h3>Performance Clips</h3>
+          <a href="https://www.dropbox.com/scl/fo/8guvlxq1w7za1twiyo6k8/ADVD-a2oReC-yHLgR7jlD7A?rlkey=4340kpsygs21d9uy9c2ls2zk2&st=q884b7ri&dl=0" target="_blank">View Folder →</a>
+        </div>
       </div>
       <div class="card">
-        <h3>Performance Photos</h3>
-        <a href="https://www.dropbox.com/scl/fo/sj1leor4miilkkk8fk3fs/AFrRfELAKAiwM40GQ1YJcL0?rlkey=aow8g8aqgeakkg6fceedlwg35&st=7qe4sshe&dl=0" target="_blank">View Folder →</a>
+        <img src="https://www.dropbox.com/scl/fi/3jjyynmo9m947hfhbrfwx/LucaLush-Lightning-in-a-Bottle.jpg?rlkey=bq7kk77f4ysm7jycds78odi3f&raw=1" alt="Performance Photos">
+        <div class="card-content">
+          <h3>Performance Photos</h3>
+          <a href="https://www.dropbox.com/scl/fo/sj1leor4miilkkk8fk3fs/AFrRfELAKAiwM40GQ1YJcL0?rlkey=aow8g8aqgeakkg6fceedlwg35&st=7qe4sshe&dl=0" target="_blank">View Folder →</a>
+        </div>
       </div>
       <div class="card">
-        <h3>Photos +</h3>
-        <a href="https://www.dropbox.com/scl/fo/8j71gxbyfvmsiajt7y2pf/ABClkGvwpZ6lo5zsGHvbDSQ?rlkey=xo59mam988heeq8nagq5s1smp&st=ub12f8uw&dl=0" target="_blank">View Folder →</a>
+        <img src="https://picsum.photos/id/133/600/400" alt="Photos +">
+        <div class="card-content">
+          <h3>Photos +</h3>
+          <a href="https://www.dropbox.com/scl/fo/8j71gxbyfvmsiajt7y2pf/ABClkGvwpZ6lo5zsGHvbDSQ?rlkey=xo59mam988heeq8nagq5s1smp&st=ub12f8uw&dl=0" target="_blank">View Folder →</a>
+        </div>
       </div>
       <div class="card">
-        <h3>Video & Digital Media</h3>
-        <a href="https://www.dropbox.com/scl/fo/rti3r82er36demth2c7f1/AGu_n1PSYI6Q3hRhSoVlxsc?rlkey=eaygannsr3vkc8v2uiolh1woq&st=u0e1c38w&dl=0" target="_blank">View Folder →</a>
+        <img src="https://www.dropbox.com/scl/fi/tvo8qs8sr7foaksa4baf2/Thumbnail_v4.jpg?rlkey=k586aw04inv9meqyopyubbpy3&raw=1" alt="Video & Digital Media">
+        <div class="card-content">
+          <h3>Video & Digital Media</h3>
+          <a href="https://www.dropbox.com/scl/fo/rti3r82er36demth2c7f1/AGu_n1PSYI6Q3hRhSoVlxsc?rlkey=eaygannsr3vkc8v2uiolh1woq&st=u0e1c38w&dl=0" target="_blank">View Folder →</a>
+        </div>
       </div>
       <div class="card">
-        <h3>Gaming</h3>
-        <a href="https://www.tiktok.com/@xanderson_24" target="_blank">TikTok →</a>
+        <img src="https://www.dropbox.com/scl/fi/2qnarwqo2do6qfrnyyjvf/BF6-Cinema-1.jpg?rlkey=d55mkrh7tlk09g3nvuf959erv&raw=1" alt="Gaming">
+        <div class="card-content">
+          <h3>Gaming</h3>
+          <a href="https://www.tiktok.com/@xanderson_24" target="_blank">TikTok →</a>
+        </div>
       </div>
     </div>
   </section>
