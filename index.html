@@ -1,222 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christian Anderson | Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1a202c;
-      color: #e2e8f0;
-      line-height: 1.6;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.85;
-    }
-    header {
-      background: linear-gradient(135deg, #2d3748, #1a202c);
-      padding: 140px 20px 80px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 4.5rem;
-      margin: 0;
-      color: #a3bffa;
-    }
-    .tagline {
-      font-size: 1.6rem;
-      color: #a0aec0;
-      margin-top: 10px;
-    }
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .about-box {
-      background: #2d3748;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      max-width: 900px;
-      margin: 0 auto 60px;
-      text-align: center;
-    }
-    h2 {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 50px;
-      color: #a3bffa;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: #2d3748;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    .card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-    .card p {
-      text-align: center;
-      padding: 15px;
-      margin: 0;
-      font-weight: 500;
-      color: #e2e8f0;
-    }
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      background: #171923;
-      color: #a0aec0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian Anderson | Optiflow Media</title>
+<meta name="description" content="Christian Anderson — camera operator, editor, and on-site producer for live events, music, and brand content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F3EEE3;
+    --ink: #201D18;
+    --ink-soft: #3A352C;
+    --muted: #6B6153;
+    --accent: #35563F;
+    --accent-hover: #2A4530;
+    --accent-2: #7A4B32;
+    --line: rgba(32,29,24,0.14);
+    --frame-bg: #0E0C0A;
+    --frame-muted: #9C9186;
+    --dark-bg: #201D18;
+    --dark-ink: #F3EEE3;
+    --dark-muted: #B9AE9C;
+    --dark-line: rgba(243,238,227,0.16);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  a{ color:inherit; }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  section{ padding:96px 0; }
+  @media (max-width:640px){ section{ padding:64px 0; } }
+
+  /* film-grain vignette, no JS */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:1;
+    background:
+      radial-gradient(120% 90% at 50% -10%, rgba(32,29,24,0) 40%, rgba(32,29,24,0.10) 100%),
+      repeating-linear-gradient(0deg, rgba(32,29,24,0.02) 0px, rgba(32,29,24,0.02) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:multiply;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:120px 0 80px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .rec-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+  .rec-dot{
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--accent-2);
+    box-shadow:0 0 8px rgba(122,75,50,0.5);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .rec-dot{ animation:none; } }
+  @keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.35; }
+  }
+  #tc{
+    font-variant-numeric:tabular-nums;
+    color:var(--muted);
+  }
+  h1.name{
+    font-size:clamp(2.75rem, 7vw, 4.75rem);
+    line-height:1.02;
+    color:var(--ink);
+  }
+  .role{
+    margin-top:14px;
+    font-size:clamp(1.1rem, 2.4vw, 1.35rem);
+    color:var(--accent);
+    font-family:'Oswald',sans-serif;
+    font-weight:400;
+  }
+  .hero-copy{
+    margin-top:26px;
+    max-width:60ch;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:2px;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:1px solid var(--line);
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn.primary{
+    background:var(--accent);
+    color:var(--bg);
+    border-color:var(--accent);
+    font-weight:600;
+  }
+  .btn.primary:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn.ghost:hover{ border-color:var(--ink); }
+
+  /* ---------- CREDIT LINE ---------- */
+  .credit{
+    padding:32px 0;
+    border-bottom:1px solid var(--line);
+    color:var(--muted);
+    font-size:0.98rem;
+  }
+  .credit strong{ color:var(--ink); font-weight:500; }
+
+  /* ---------- WORK ---------- */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:44px;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
+  .section-head p{ color:var(--muted); margin:0; max-width:38ch; font-size:0.98rem; }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .card{
+    background:var(--bg);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .frame{
+    position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:var(--frame-bg);
+  }
+  .frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    filter:saturate(0.94) brightness(0.96);
+    transition:filter 0.35s ease, transform 0.5s ease;
+  }
+  .card a.frame:hover img, .card a.frame:focus-visible img{
+    filter:saturate(1.05) brightness(1.02);
+    transform:scale(1.02);
+  }
+  /* viewfinder corners on hover/focus */
+  .corner{
+    position:absolute;
+    width:18px; height:18px;
+    border-color:var(--accent);
+    opacity:0;
+    transition:opacity 0.25s ease;
+    pointer-events:none;
+  }
+  .corner.tl{ top:10px; left:10px; border-top:2px solid; border-left:2px solid; }
+  .corner.tr{ top:10px; right:10px; border-top:2px solid; border-right:2px solid; }
+  .corner.bl{ bottom:10px; left:10px; border-bottom:2px solid; border-left:2px solid; }
+  .corner.br{ bottom:10px; right:10px; border-bottom:2px solid; border-right:2px solid; }
+  .card a.frame:hover ~ .corner,
+  .card a.frame:focus-visible ~ .corner,
+  .card:hover .corner,
+  .card:focus-within .corner{ opacity:1; }
+
+  .card .meta{
+    padding:18px 20px 22px;
+  }
+  .card .meta .cat{
+    font-size:0.78rem;
+    color:var(--accent);
+    font-family:'Oswald',sans-serif;
+    margin-bottom:6px;
+  }
+  .card .meta h3{
+    font-size:1.05rem;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .card .meta p{
+    margin:8px 0 0;
+    font-size:0.92rem;
+    color:var(--muted);
+  }
+
+  /* placeholder cards for missing work */
+  .placeholder .frame{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px dashed var(--line);
+    background:repeating-linear-gradient(135deg, rgba(242,237,227,0.03) 0 10px, transparent 10px 20px);
+  }
+  .placeholder .frame span{
+    color:var(--frame-muted);
+    font-size:0.9rem;
+    text-align:center;
+    padding:0 24px;
+  }
+
+  /* ---------- CAPABILITIES (negative frame — inverted band) ---------- */
+  .negative{
+    background:var(--dark-bg);
+    color:var(--dark-ink);
+  }
+  .negative .section-head p{ color:var(--dark-muted); }
+  .cap-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:36px 40px;
+  }
+  .cap-grid div h3{
+    font-size:1.05rem;
+    font-weight:500;
+    border-bottom:1px solid var(--dark-line);
+    padding-bottom:10px;
+    margin-bottom:10px;
+  }
+  .cap-grid div p{
+    margin:0;
+    font-size:0.96rem;
+    color:var(--dark-muted);
+  }
+
+  /* ---------- EXPERIENCE (timeline) ---------- */
+  .timeline{
+    border-left:1px solid var(--line);
+    margin-left:6px;
+  }
+  .tl-item{
+    position:relative;
+    padding:0 0 40px 32px;
+  }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-5px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--accent);
+  }
+  .tl-item .when{
+    font-size:0.85rem;
+    color:var(--muted);
+    font-family:'Oswald',sans-serif;
+  }
+  .tl-item h3{
+    font-size:1.15rem;
+    font-weight:500;
+    margin-top:4px;
+  }
+  .tl-item .org{ color:var(--accent); font-size:0.98rem; }
+  .tl-item p{
+    margin:10px 0 0;
+    color:var(--ink-soft);
+    max-width:60ch;
+    font-size:0.98rem;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .contact-wrap h2{ font-size:clamp(2rem,5vw,3rem); max-width:14ch; }
+  .contact-list{ display:flex; flex-direction:column; gap:10px; }
+  .contact-list a{
+    text-decoration:none;
+    font-size:1.15rem;
+    border-bottom:1px solid transparent;
+    transition:border-color 0.2s ease;
+  }
+  .contact-list a:hover, .contact-list a:focus-visible{ border-color:var(--accent); }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0;
+    color:var(--muted);
+    font-size:0.85rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+</style>
 </head>
 <body>
-  <canvas id="particles"></canvas>
 
-  <header>
-    <h1 id="title">OPTIFLOW MEDIA</h1>
-    <p class="tagline">Video • Photography • Digital Content</p>
-    <p style="margin-top:30px; font-size:1.4rem;">Christian Anderson</p>
-  </header>
+<header class="hero wrap">
+  <div class="rec-row">
+    <span class="rec-dot" aria-hidden="true"></span>
+    <span>Available for bookings</span>
+    <span aria-hidden="true">·</span>
+    <span id="tc">00:00:00</span>
+  </div>
+  <h1 class="name">Christian Anderson</h1>
+  <p class="role">Camera operator, editor &amp; on-site producer</p>
+  <p class="hero-copy">
+    I run point on video and photo for live events, artist campaigns, and brand content —
+    from the first setup shot to a finished edit delivered before the crowd goes home.
+    Based in San Diego, working wherever the shoot is.
+  </p>
+  <div class="hero-actions">
+    <a class="btn primary" href="inquiry.html">Start a project</a>
+    <a class="btn ghost" href="#work">See the work</a>
+  </div>
+</header>
 
-  <section>
-    <div class="about-box">
-      <h2>About My Portfolio</h2>
-      <p>Welcome to my professional portfolio. I’m a video producer, camera operator, and editor with experience in live events, music videos, festivals, brand campaigns, and digital content.</p>
+<div class="credit wrap">
+  On-site and post-production work for <strong>Dim Mak Records</strong>,
+  <strong>X Games Sacramento</strong>, and festival stages including
+  <strong>Lightning in a Bottle</strong>.
+</div>
+
+<section id="work" class="wrap">
+  <div class="section-head">
+    <h2>Selected work</h2>
+    <p>A mix of live coverage, artist content, and brand work — click through for the full set.</p>
+  </div>
+
+  <div class="grid" id="work-grid"><!-- populated by the WORKS list at the bottom of this file --></div>
+
+  <div style="margin-top:32px;">
+    <a class="btn ghost" href="all-work.html">See all work &rarr;</a>
+  </div>
+
+</section>
+
+<section class="negative">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I take on</h2>
+      <p>The parts of a shoot I'm usually hired for, start to finish.</p>
     </div>
-  </section>
-
-  <section>
-    <h2>Recent Work</h2>
-    <div class="portfolio-grid">
-      <div class="card">
-        <a href="https://www.dropbox.com/scl/fo/8nymescozy6i6rhnqlpx7/AMWPmno475W8KkdO4KBbeLs?rlkey=7rxbaybgsor897bryz0hi4lv6&st=s9s8uisf&dl=0" target="_blank">
-          <img src="https://www.dropbox.com/scl/fi/fkr6pc77kv6bli75kqy8h/Lightning-in-a-Bottle-Woogie-Stage.jpg?rlkey=xy0xhyn5lg9b49csz1bldib9u&st=13eva84g&raw=1" alt="On-Site Editing">
-        </a>
-        <p>On-Site Editing</p>
+    <div class="cap-grid">
+      <div>
+        <h3>Live event coverage</h3>
+        <p>Camera operation across multi-day festivals and stage productions, working alongside artist management and production teams.</p>
       </div>
-      <div class="card">
-        <a href="https://www.dropbox.com/scl/fo/8guvlxq1w7za1twiyo6k8/ADVD-a2oReC-yHLgR7jlD7A?rlkey=4340kpsygs21d9uy9c2ls2zk2&st=q884b7ri&dl=0" target="_blank">
-          <img src="https://www.dropbox.com/scl/fi/cjp5sjj0za6n8fr7buof2/Mochakk-The-Torch-1.jpg?rlkey=rwklzn23ey78661xzmwgi7e70&st=cbwjr1f7&raw=1" alt="Performance Clips">
-        </a>
-        <p>Performance Clips</p>
+      <div>
+        <h3>On-site editing</h3>
+        <p>Same-day and next-day cuts delivered from the field, so content ships while the event is still relevant.</p>
       </div>
-      <div class="card">
-        <a href="https://www.dropbox.com/scl/fo/sj1leor4miilkkk8fk3fs/AFrRfELAKAiwM40GQ1YJcL0?rlkey=aow8g8aqgeakkg6fceedlwg35&st=7qe4sshe&dl=0" target="_blank">
-          <img src="https://www.dropbox.com/scl/fi/3jjyynmo9m947hfhbrfwx/LucaLush-Lightning-in-a-Bottle.jpg?rlkey=bq7kk77f4ysm7jycds78odi3f&st=hkglggvu&raw=1" alt="Performance Photos">
-        </a>
-        <p>Performance Photos</p>
+      <div>
+        <h3>Artist &amp; performance content</h3>
+        <p>Performance clips and stills built for an artist's own promo use — festival sets, backstage, press.</p>
       </div>
-      <div class="card">
-        <a href="https://www.dropbox.com/scl/fo/8j71gxbyfvmsiajt7y2pf/ABClkGvwpZ6lo5zsGHvbDSQ?rlkey=xo59mam988heeq8nagq5s1smp&st=ub12f8uw&dl=0" target="_blank">
-          <img src="https://picsum.photos/id/1016/800/600" alt="Photos +">
-        </a>
-        <p>Photos +</p>
-      </div>
-      <div class="card">
-        <a href="https://www.dropbox.com/scl/fo/rti3r82er36demth2c7f1/AGu_n1PSYI6Q3hRhSoVlxsc?rlkey=eaygannsr3vkc8v2uiolh1woq&st=u0e1c38w&dl=0" target="_blank">
-          <img src="https://www.dropbox.com/scl/fi/tvo8qs8sr7foaksa4baf2/Thumbnail_v4.jpg?rlkey=k586aw04inv9meqyopyubbpy3&st=fae0tsdj&raw=1" alt="Video & Digital Media">
-        </a>
-        <p>Video & Digital Media</p>
-      </div>
-      <div class="card">
-        <a href="https://www.dropbox.com/scl/fo/7msxgooya1q89b69w36lb/AIZgQ3vkoEsYsBMQGAeJvgA?rlkey=1vtdr1n7a7gjegad21q4thhs9&st=of4ioi7j&dl=0" target="_blank">
-          <img src="https://picsum.photos/id/201/800/600" alt="Ads">
-        </a>
-        <p>Ads</p>
+      <div>
+        <h3>Brand &amp; digital content</h3>
+        <p>Short-form video and photo for campaigns, ads, and social — shot and cut for how it'll actually be used.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>Christian Anderson • Optiflow Media</p>
-    <p>(251) 423-3055 | canderrson@protonmail.com</p>
-  </footer>
+<section class="wrap">
+  <div class="section-head">
+    <h2>Experience</h2>
+    <p>Where the work above came from.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="when">June 2026</div>
+      <h3>DIT / Media Manager</h3>
+      <div class="org">X Games Sacramento (contract)</div>
+      <p>Managed footage ingest, backup, and organization across a multi-camera live sports production.</p>
+    </div>
+    <div class="tl-item">
+      <div class="when">April 2022 – September 2025</div>
+      <h3>Production Coordinator</h3>
+      <div class="org">Dim Mak Records, Encino, CA</div>
+      <p>Video and photo production for artists and label campaigns; coordinated shoots directly with artists and management from planning through delivery.</p>
+    </div>
+    <div class="tl-item">
+      <div class="when">Ongoing</div>
+      <h3>Freelance camera operator &amp; editor</h3>
+      <div class="org">Optiflow Media</div>
+      <p>Independent bookings for live events, artist content, and brand work — the projects shown above.</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 4 + 1.5;
-        this.speedY = Math.random() * 2.2 + 0.8;
-        this.speedX = Math.random() * 1.4 - 0.7;
-        this.opacity = Math.random() * 0.85 + 0.4;
-        this.hue = Math.random() < 0.55 ? 200 : 215;
-        this.shape = Math.random();
+<section class="wrap">
+  <div class="contact-wrap">
+    <h2>Let's work on something.</h2>
+    <div class="contact-list">
+      <a href="mailto:canderrson@protonmail.com">canderrson@protonmail.com</a>
+      <a href="tel:+12514233055">(251) 423-3055</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Christian Anderson · Optiflow Media</span>
+  <span><a href="personal.html" style="text-decoration:underline;">Personal projects</a> · San Diego, CA</span>
+</footer>
+
+<script src="works-data.js"></script>
+<script>
+
+  function renderWork(){
+    const grid = document.getElementById('work-grid');
+    grid.innerHTML = WORKS.map(w => {
+      const corners = '<span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>';
+      const meta = `
+        <div class="meta">
+          <div class="cat">${w.category}</div>
+          <h3>${w.title}</h3>
+          <p>${w.blurb}</p>
+        </div>`;
+      const cover = w.images && w.images[0];
+      if (cover){
+        const frame = `<a class="frame" href="work.html?id=${encodeURIComponent(w.id)}"><img src="${cover}" alt="${w.title}"></a>`;
+        return `<div class="card">${frame}${corners}${meta}</div>`;
       }
-      update() {
-        this.y -= this.speedY;
-        this.x += this.speedX;
-        if (this.y < 0) this.y = canvas.height;
-      }
-      draw() {
-        ctx.save();
-        ctx.shadowBlur = 22;
-        ctx.shadowColor = this.hue === 200 ? "#70ccff" : "#aaccff";
-        ctx.fillStyle = `hsla(${this.hue}, 85%, 92%, ${this.opacity})`;
-        if (this.shape < 0.7) {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        } else {
-          ctx.translate(this.x, this.y);
-          ctx.rotate(Math.PI / 4);
-          ctx.fillRect(-this.size*0.8, -this.size*0.8, this.size*1.6, this.size*1.6);
-        }
-        ctx.restore();
-      }
-    }
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < 220; i++) {
-        particles.push(new Particle());
-      }
-    }
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      requestAnimationFrame(animateParticles);
-    }
-    const title = document.getElementById('title');
-    function triggerGlitch() {
-      title.classList.add('glitch');
-      setTimeout(() => title.classList.remove('glitch'), 3400);
-    }
-    setTimeout(triggerGlitch, 1800);
-    setInterval(() => { if (Math.random() < 0.55) triggerGlitch(); }, 11000);
-    window.addEventListener('resize', () => { resize(); initParticles(); });
-    resize();
-    initParticles();
-    animateParticles();
-  </script>
+      return `<div class="card placeholder"><div class="frame"><span>No image yet — add one to this entry in works-data.js.</span></div>${meta}</div>`;
+    }).join('');
+  }
+  renderWork();
+
+  function pad(n){ return n.toString().padStart(2,'0'); }
+  function tick(){
+    const d = new Date();
+    document.getElementById('tc').textContent =
+      pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+
 </body>
 </html>
