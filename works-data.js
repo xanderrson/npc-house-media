@@ -83,12 +83,12 @@ const WORKS = [
   {
     id: "fisher-chris-lake-ad",
     category: "Brand / ads",
-    title: "Fisher x Chris Lake — Ad shot",
-    blurb: "Promotional ad still for the Fisher x Chris Lake collaboration.",
+    title: "Fisher x Chris Lake — Taking Over Hollywood Blvd",
+    blurb: "Edited for Goldenvoice and Framework.",
     images: [
       "https://www.dropbox.com/scl/fi/m1a35ww4dh6n00opmdmt0/Fisher-x-Chris-Lake_Ad_shot.jpg?rlkey=u38mq2jczxy2hk6ih02ym0epe&st=8lyx38iv&raw=1"
     ],
-    videos: [],
+    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/Cx-_o5FpeSl/?stkn=NTc4MTIwNjQ2YQ==" }],
     folder: "https://www.dropbox.com/scl/fi/m1a35ww4dh6n00opmdmt0/Fisher-x-Chris-Lake_Ad_shot.jpg?rlkey=u38mq2jczxy2hk6ih02ym0epe&st=8lyx38iv&dl=0"
   },
   {
@@ -107,15 +107,6 @@ const WORKS = [
     blurb: "On-site cut of the Odd Mob live set at Crssdfest 2026.",
     images: [],
     videos: [{ type: "instagram", url: "https://www.instagram.com/reel/DWZhtfwhcMb/?stkn=NjZiM2M3MzIxNA%3D%3D" }],
-    folder: ""
-  },
-  {
-    id: "fisher-chris-lake-hollywood",
-    category: "Brand / ads",
-    title: "Fisher x Chris Lake — Taking Over Hollywood Blvd",
-    blurb: "Edited for Goldenvoice and Framework.",
-    images: [],
-    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/Cx-_o5FpeSl/?stkn=NTc4MTIwNjQ2YQ==" }],
     folder: ""
   },
   {
