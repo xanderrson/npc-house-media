@@ -38,6 +38,26 @@
     margin:0 auto;
     padding:0 28px;
   }
+  nav.sitenav{
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+  }
+  nav.sitenav .wrap{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+  nav.sitenav a{
+    text-decoration:none;
+    font-family:'Oswald',sans-serif;
+    font-size:0.95rem;
+    color:var(--muted);
+    padding-bottom:4px;
+    border-bottom:2px solid transparent;
+  }
+  nav.sitenav a:hover{ color:var(--ink); }
   header{ padding:48px 0 8px; }
   .back{
     display:inline-flex;
@@ -105,6 +125,13 @@
 </style>
 </head>
 <body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html">Portfolio</a>
+    <a href="all-work.html">All Work</a>
+  </div>
+</nav>
 
 <header class="wrap">
   <a class="back" href="index.html">&larr; Back to portfolio</a>
