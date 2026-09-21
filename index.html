@@ -478,7 +478,7 @@
 
   function renderWork(){
     const grid = document.getElementById('work-grid');
-    grid.innerHTML = WORKS.map(w => {
+    grid.innerHTML = WORKS.filter(w => w.featured).map(w => {
       const corners = '<span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>';
       const meta = `
         <div class="meta">

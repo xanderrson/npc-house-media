@@ -27,6 +27,7 @@
 const WORKS = [
   {
     id: "woogie-stage",
+    featured: true,
     category: "Live event · On-site editing",
     title: "Woogie Stage — Lightning in a Bottle",
     blurb: "Same-day turnaround edits cut and delivered from a laptop at the stage.",
@@ -38,6 +39,7 @@ const WORKS = [
   },
   {
     id: "mochakk-torch",
+    featured: true,
     category: "Performance · Video",
     title: "Mochakk — The Torch",
     blurb: "Multi-cam performance coverage for an artist set booked through Framework.",
@@ -49,6 +51,7 @@ const WORKS = [
   },
   {
     id: "lucalush-litb",
+    featured: true,
     category: "Performance · Photography",
     title: "LucaLush — Lightning in a Bottle",
     blurb: "Stills coverage across a full festival set, shot for artist promo use.",
@@ -60,6 +63,7 @@ const WORKS = [
   },
   {
     id: "video-digital-reel",
+    featured: true,
     category: "Digital media",
     title: "Video &amp; digital media reel",
     blurb: "A cut of short-form content built for social and campaign use.",
@@ -71,6 +75,7 @@ const WORKS = [
   },
   {
     id: "impala64-promo",
+    featured: true,
     category: "Photography",
     title: "Impala64 — Promo photo",
     blurb: "Promotional portrait shot for the artist Impala64.",
@@ -82,6 +87,7 @@ const WORKS = [
   },
   {
     id: "fisher-chris-lake-ad",
+    featured: true,
     category: "Brand / ads",
     title: "Fisher x Chris Lake — Taking Over Hollywood Blvd",
     blurb: "Edited for Goldenvoice and Framework.",
