@@ -116,6 +116,24 @@ const WORKS = [
     folder: ""
   },
   {
+    id: "xgames-winter-draft-onsite-edit",
+    category: "Live event · On-site editing",
+    title: "X Games — Winter Draft (On-site Edit)",
+    blurb: "Edited on-site for X Games Winter Draft.",
+    images: [],
+    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/DdZxhN6DLad/?stkn=NTc4MTIwNjQ2YQ==" }],
+    folder: ""
+  },
+  {
+    id: "xgames-winter-draft-footage",
+    category: "Live event · On-site editing",
+    title: "X Games — Winter Draft (Footage)",
+    blurb: "Shot and provided some footage for this piece.",
+    images: [],
+    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/Ddb-qI4EQ3g/?stkn=NTc4MTIwNjQ2YQ==" }],
+    folder: ""
+  },
+  {
     id: "trace-sound-nightclub",
     category: "Brand / ads",
     title: "Trace Music — Sound Nightclub",
