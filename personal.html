@@ -16,6 +16,8 @@
     --muted: #6B6153;
     --accent: #35563F;
     --line: rgba(32,29,24,0.14);
+    --frame-bg: #0E0C0A;
+    --frame-muted: #9C9186;
   }
   *{ box-sizing:border-box; }
   body{
@@ -94,22 +96,46 @@
 
   .row{
     display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:20px;
-    padding:18px 0;
+    align-items:center;
+    gap:18px;
+    padding:16px 0;
     border-bottom:1px solid var(--line);
     text-decoration:none;
     color:inherit;
   }
-  .row:hover .row-title{ border-color:var(--accent); }
-  .row-text{ min-width:0; }
+  .row-thumb{
+    flex-shrink:0;
+    width:104px;
+    height:78px;
+    border-radius:2px;
+    overflow:hidden;
+    background:var(--frame-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .row-thumb img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 0.3s ease;
+  }
+  .row:hover .row-thumb img{ transform:scale(1.05); }
+  .row-thumb .platform-label{
+    color:var(--frame-muted);
+    font-size:0.7rem;
+    font-family:'Oswald',sans-serif;
+    text-align:center;
+    padding:0 6px;
+  }
+  .row-text{ min-width:0; flex:1; }
   .row-title{
     font-size:1.05rem;
     font-weight:500;
     border-bottom:1px solid transparent;
     transition:border-color 0.2s ease;
   }
+  .row:hover .row-title{ border-color:var(--accent); }
   .row-credit{
     font-size:0.92rem;
     color:var(--muted);
@@ -146,6 +172,36 @@
 
 <script src="works-data.js"></script>
 <script>
+  function extractYouTubeId(url){
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=)([\w-]+)/,
+      /(?:youtu\.be\/)([\w-]+)/,
+      /(?:youtube\.com\/embed\/)([\w-]+)/,
+      /(?:youtube\.com\/shorts\/)([\w-]+)/
+    ];
+    for (const p of patterns){
+      const m = url.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function thumbFor(w){
+    if (w.images && w.images.length){
+      return `<img src="${w.images[0]}" alt="${w.title}">`;
+    }
+    if (w.videos && w.videos.length){
+      const v = w.videos[0];
+      if (v.type === 'youtube'){
+        const id = extractYouTubeId(v.url);
+        if (id) return `<img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${w.title}">`;
+      }
+      if (v.type === 'instagram') return `<span class="platform-label">Instagram clip</span>`;
+      if (v.type === 'tiktok') return `<span class="platform-label">TikTok clip</span>`;
+    }
+    return `<span class="platform-label">No preview</span>`;
+  }
+
   function render(){
     const el = document.getElementById('content');
     const items = WORKS.filter(w => w.category.startsWith('Personal'));
@@ -168,6 +224,7 @@
     el.innerHTML = order.map(cat => {
       const rows = byCategory[cat].map(w => `
         <a class="row" href="work.html?id=${encodeURIComponent(w.id)}">
+          <div class="row-thumb">${thumbFor(w)}</div>
           <div class="row-text">
             <div class="row-title">${w.title}</div>
             <div class="row-credit">${w.blurb}</div>

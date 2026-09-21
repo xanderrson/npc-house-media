@@ -198,7 +198,7 @@
 </nav>
 
 <header class="wrap">
-  <a class="back" href="index.html#work">&larr; Back to portfolio</a>
+  <a class="back" href="index.html" id="back-link">&larr; Back</a>
 </header>
 
 <main class="wrap" id="content">
@@ -227,13 +227,6 @@
     return null;
   }
 
-  function extractTikTokId(url){
-    const m = url.match(/tiktok\.com\/@([\w.]+)\/video\/(\d+)/);
-    return m ? { username: m[1], id: m[2] } : null;
-  }
-
-  let needsTikTokScript = false;
-
   function renderVideo(v){
     if (v.type === 'youtube'){
       const id = extractYouTubeId(v.url);
@@ -247,11 +240,6 @@
       </div>`;
     }
     if (v.type === 'tiktok'){
-      const t = extractTikTokId(v.url);
-      if (t){
-        needsTikTokScript = true;
-        return `<div class="tiktok-wrap"><blockquote class="tiktok-embed" cite="${v.url}" data-video-id="${t.id}" style="max-width: 605px;min-width: 325px;"></blockquote></div>`;
-      }
       return `<div class="ig-card">
         <span>This clip lives on TikTok.</span>
         <a href="${v.url}" target="_blank" rel="noopener">Watch on TikTok &rarr;</a>
@@ -267,7 +255,7 @@
     if (!entry){
       el.innerHTML = `<div class="empty">
         <p>Couldn't find that project.</p>
-        <a class="back" href="index.html#work">&larr; Back to portfolio</a>
+        <a class="back" href="index.html">&larr; Back to portfolio</a>
       </div>`;
       return;
     }
@@ -294,16 +282,17 @@
     `;
 
     document.title = entry.title + " | Optiflow Media";
-
-    if (needsTikTokScript){
-      const s = document.createElement('script');
-      s.src = 'https://www.tiktok.com/embed.js';
-      s.async = true;
-      document.body.appendChild(s);
-    }
   }
 
   render();
+
+  document.getElementById('back-link').addEventListener('click', function(e){
+    if (window.history.length > 1){
+      e.preventDefault();
+      window.history.back();
+    }
+    // otherwise, let it fall through to the href="index.html" fallback
+  });
 </script>
 
 </body>
