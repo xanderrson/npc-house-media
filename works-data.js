@@ -23,13 +23,31 @@
                 "Browse full gallery" link at the end of their category
                 instead of a normal clickable project row. Omit this field
                 entirely for a real, specific project.
+     featured - optional, set to true for the handful of cards shown on
+                the homepage grid. Only ever needs one entry per category
+                really, but it's just whichever cards you want up front.
+     featuredLink - optional, only meaningful alongside featured: true.
+                When true, clicking that homepage card goes to that
+                category's rolodex page (category.html) instead of the
+                card's own detail page — useful when a card is standing in
+                as a category's cover image even though you don't have a
+                dedicated piece to show for it yet (e.g. a photo used as
+                the "Performance · Video" cover while no video exists yet).
      videos   - an array of video links for this project, or [] if none.
                 Each one is an object: { type: "youtube", url: "..." }
-                or { type: "instagram", url: "..." }
-                YouTube videos get embedded and play right on the page.
-                Instagram videos show as a "Watch on Instagram" button instead
-                (Instagram's own embed carries too much of its own branding
-                to sit cleanly on the page).
+                Supported types:
+                  "youtube"   - embeds and plays right on the page
+                  "instagram" - shows a "Watch on Instagram" button instead
+                                (Instagram's own embed carries too much of
+                                its own branding to sit cleanly on the page)
+                  "tiktok"    - shows a "Watch on TikTok" button (TikTok's
+                                own embed is unreliable across browsers)
+                  "medal"     - embeds and plays right on the page (for
+                                clips hosted on medal.tv)
+                  "video"     - a direct link to a video file (e.g. a
+                                Dropbox raw link, or a file uploaded into
+                                this repo) — plays with a plain built-in
+                                video player, right on the page
    ========================================================= */
 const WORKS = [
   {
@@ -47,9 +65,10 @@ const WORKS = [
   {
     id: "mochakk-torch",
     featured: true,
+    featuredLink: true,
     category: "Performance · Video",
     title: "Mochakk — The Torch",
-    blurb: "Multi-cam performance coverage for an artist set booked through Framework.",
+    blurb: "A behind-the-scenes look — the full performance video from this set isn't uploaded yet.",
     images: [
       "https://www.dropbox.com/scl/fi/cjp5sjj0za6n8fr7buof2/Mochakk-The-Torch-1.jpg?rlkey=rwklzn23ey78661xzmwgi7e70&st=cbwjr1f7&raw=1"
     ],
@@ -57,8 +76,29 @@ const WORKS = [
     folder: "https://www.dropbox.com/scl/fo/8guvlxq1w7za1twiyo6k8/ADVD-a2oReC-yHLgR7jlD7A?rlkey=4340kpsygs21d9uy9c2ls2zk2&st=q884b7ri&dl=0"
   },
   {
-    id: "lucalush-litb",
+    id: "4b-miami",
+    category: "Performance · Video",
+    title: "4B — Miami",
+    blurb: "Live performance coverage for 4B in Miami.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/ksl7n7y5a5gbfu8gqeoy1/4B-Miami-1.mp4?rlkey=x3qn556pvkz1f3fpndkk81aa5&st=k6pc16ch&raw=1" }],
+    folder: "https://www.dropbox.com/scl/fo/8guvlxq1w7za1twiyo6k8/ADVD-a2oReC-yHLgR7jlD7A?rlkey=4340kpsygs21d9uy9c2ls2zk2&st=q884b7ri&dl=0"
+  },
+  {
+    id: "hot-since-82-framework-kneedeep",
     featured: true,
+    featuredLink: true,
+    category: "Performance · Photography",
+    title: "Hot Since 82 — Framework x Knee Deep, LA",
+    blurb: "Performance photography for a Framework x Knee Deep show in LA.",
+    images: [
+      "https://www.dropbox.com/scl/fi/s2phthjfq7ag54c2dkarz/HS82-6.jpg?rlkey=b5sywaegnk8o4yy8x5wcayel9&st=opfe5sn0&raw=1"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "lucalush-litb",
     category: "Performance · Photography",
     title: "LucaLush — Lightning in a Bottle",
     blurb: "Stills coverage across a full festival set, shot for artist promo use.",
@@ -445,6 +485,105 @@ const WORKS = [
     blurb: "Posted to TikTok.",
     images: [],
     videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6819805660931181829?_r=1&_t=ZT-99ovQBQBoQH" }],
+    folder: ""
+  },
+  {
+    id: "henry-fong-time",
+    category: "Performance · Video",
+    title: "Henry Fong — Time",
+    blurb: "Live performance coverage at Time.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/6y9vdczvlkfqxu5pj73k5/HenryFong-Time-Vertical-Clip-3.MP4?rlkey=8z1bglw9aby3z8h31k3oeo4hf&st=6wp4k7x2&raw=1" }, { type: "video", url: "https://www.dropbox.com/scl/fi/cbupjb54chcz3zw220t3s/HenryFong-Time-Vertical-Clip-1.MP4?rlkey=t6xmemdthndqe9qi3xizkymh4&st=tlscbp02&raw=1" }, { type: "video", url: "https://www.dropbox.com/scl/fi/g5yl04yyswaansxd0xjo5/HenryFong-Time-Vertical-Clip-2.MP4?rlkey=uocz96pyygbfzqa3gg73g71xe&st=j5p2wo2e&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "pablo-fierro-sound",
+    category: "Performance · Video",
+    title: "Pablo Fierro — Sound",
+    blurb: "Live performance coverage at Sound.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/rc9h15x80v3wzctqdz1l0/Pablo-Fierro-Sound.mov?rlkey=wt66fffd7jfcb1iibn79q53z4&st=vfx6cduv&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "diplo-highergound-la",
+    category: "Performance · Video",
+    title: "Diplo — HigherGround, LA",
+    blurb: "Live performance coverage at HigherGround in LA.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/eipbgfqw52vasfoqf5am3/Diplo-1.mp4?rlkey=cvkha2q4m9rdqbeo3nq2iqze8&st=ziap1p6o&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "maz-litb",
+    category: "Performance · Video",
+    title: "Maz — Lightning in a Bottle",
+    blurb: "Live performance coverage at Lightning in a Bottle.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/tqc07evvzlhgy6hzq4wb9/Maz-Lightning-in-a-Bottle-Horizontal-Cut-2.mp4?rlkey=w5chahyd4utama8m8rfbvc6m8&st=ntiwd4bb&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "hugel-highergound-la",
+    category: "Performance · Video",
+    title: "Hugel — HigherGround, LA",
+    blurb: "Live performance coverage at HigherGround in LA.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/eqg7x19nahthncmnw34a2/Hugelthug-Vertical-Cut-1.mp4?rlkey=31iwjrhaekhd8n00tx23ed1lt&st=cs20z0au&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "coco-breezy-highergound-la",
+    category: "Performance · Video",
+    title: "Coco & Breezy — HigherGround, LA",
+    blurb: "Live performance coverage at HigherGround in LA.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/g6f6b3esx4eppm0syp30e/Coco-Breezy-HigherGround-Vertical-1.mp4?rlkey=pzu6c14k36v66ta0p6qnsfyeu&st=1kux50mw&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "bob-moses-litb",
+    category: "Performance · Video",
+    title: "Bob Moses — Lightning in a Bottle",
+    blurb: "Live performance coverage at Lightning in a Bottle.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/xnifgako0int8dsaq1j9t/Bob-Moses-Lightning-in-a-Bottle.mp4?rlkey=419ofk59in1svw4h4v930iclw&st=k44loe65&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "jstjr-avalon",
+    category: "Performance · Video",
+    title: "Jstjr — Avalon",
+    blurb: "Live performance coverage at Avalon.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/p3fpuwwppsd4dstrd7bp3/Jstjr-Avalon-1.mp4?rlkey=qv2d8djr4oxysgsyja18x4cv7&st=ez9l22zt&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "jstjr-nova",
+    category: "Performance · Video",
+    title: "Jstjr — NOVA",
+    blurb: "Live performance coverage at NOVA.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/dyskwhhno8dc62ujb0oom/Jstjr-Nova.mp4?rlkey=cunkzamxkqapmldemmnhof6id&st=bcla0g8q&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "deorro-torch-la",
+    category: "Performance · Video",
+    title: "Deorro — The Torch, LA",
+    blurb: "Live performance coverage at The Torch in LA.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/lnibl0u436hddizhls6xp/Deorro-1.mp4?rlkey=tx503gcsjh88bmrxdde4rubue&st=xeok814k&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "lupe-fuentes-torch-la",
+    category: "Performance · Video",
+    title: "Lupe Fuentes — The Torch, LA",
+    blurb: "Live performance coverage at The Torch in LA.",
+    images: [],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/20vgel3sedsum1jqt567l/Lupe-Fuentes-1.mp4?rlkey=lbpjvy7nm5m08lygt3dtk90cf&st=l3nwwusa&raw=1" }],
     folder: ""
   },
   // Add more project objects here, following the same shape.

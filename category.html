@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Category | Optiflow Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F3EEE3;
+    --ink: #201D18;
+    --ink-soft: #3A352C;
+    --muted: #6B6153;
+    --accent: #35563F;
+    --accent-hover: #2A4530;
+    --line: rgba(32,29,24,0.14);
+    --frame-bg: #0E0C0A;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,.display{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  a{ color:inherit; }
+  .wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  nav.sitenav{
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  nav.sitenav .wrap{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    padding-top:20px;
+    padding-bottom:20px;
+    max-width:900px;
+  }
+  nav.sitenav a{
+    text-decoration:none;
+    font-family:'Oswald',sans-serif;
+    font-size:0.95rem;
+    color:var(--muted);
+    padding-bottom:4px;
+    border-bottom:2px solid transparent;
+  }
+  nav.sitenav a:hover{ color:var(--ink); }
+
+  main{ padding:40px 0 100px; }
+  .back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.9rem;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color 0.2s ease;
+    margin-bottom:24px;
+  }
+  .back:hover{ border-color:var(--muted); }
+
+  .cat-label{
+    font-size:0.85rem;
+    color:var(--accent);
+    font-family:'Oswald',sans-serif;
+    margin-bottom:8px;
+  }
+  h1{ font-size:clamp(2rem, 5vw, 2.6rem); margin-bottom:32px; }
+
+  /* ---------- rolodex stack (same pattern as homepage favorites) ---------- */
+  .stack-wrap{ max-width:720px; margin:0 auto; }
+  .stack{
+    position:relative;
+    height:660px;
+  }
+  @media (max-width:600px){ .stack{ height:600px; } }
+  .stack-card{
+    position:absolute;
+    inset:0;
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:22px;
+    box-sizing:border-box;
+    transition:transform 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease, box-shadow 0.3s ease;
+    overflow:hidden;
+  }
+  .stack-card.pos-0{
+    transform:none;
+    z-index:3;
+    opacity:1;
+    box-shadow:0 10px 30px rgba(32,29,24,0.14);
+    cursor:default;
+  }
+  .stack-card.pos-1{
+    transform:translateY(34px) scale(0.93) rotate(-3.5deg);
+    z-index:2;
+    opacity:0.85;
+    cursor:pointer;
+  }
+  .stack-card.pos-2{
+    transform:translateY(64px) scale(0.87) rotate(3.5deg);
+    z-index:1;
+    opacity:0.65;
+    cursor:pointer;
+  }
+  .stack-card.pos-hidden{
+    transform:translateY(80px) scale(0.82) rotate(5deg);
+    z-index:0;
+    opacity:0;
+    pointer-events:none;
+  }
+  .stack-card .video-embed{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--frame-bg);
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .stack-card.pos-1 .video-embed, .stack-card.pos-2 .video-embed{ pointer-events:none; }
+  .stack-card .video-embed iframe, .stack-card .video-embed video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .stack-card .frame-img{
+    width:100%;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:var(--frame-bg);
+    margin-bottom:18px;
+  }
+  .stack-card .frame-img img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .ig-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    padding:16px 20px;
+    border:1px solid var(--line);
+    margin-bottom:18px;
+  }
+  .ig-card span{ color:var(--ink-soft); font-size:0.95rem; }
+  .ig-card a{
+    text-decoration:none;
+    font-weight:600;
+    color:var(--accent);
+    border-bottom:1px solid var(--accent);
+    white-space:nowrap;
+  }
+  .stack-card .cat{
+    font-size:0.78rem;
+    color:var(--accent);
+    font-family:'Oswald',sans-serif;
+    margin-bottom:6px;
+  }
+  .stack-card h3{
+    font-size:1.2rem;
+    font-weight:500;
+    margin-bottom:6px;
+  }
+  .stack-card p{
+    color:var(--muted);
+    font-size:0.95rem;
+    max-width:60ch;
+  }
+  .stack-card .view-link{
+    display:inline-block;
+    margin-top:8px;
+    font-size:0.9rem;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+  }
+  .stack-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    margin-top:24px;
+  }
+  .stack-nav button{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink);
+    font-size:1rem;
+    cursor:pointer;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .stack-nav button:hover{ border-color:var(--accent); background:var(--accent); color:var(--bg); }
+  .stack-counter{ font-size:0.9rem; color:var(--muted); font-family:'Oswald',sans-serif; }
+
+  .empty{ padding:80px 0; text-align:center; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html">Portfolio</a>
+    <a href="all-work.html">All Work</a>
+    <a href="personal.html">Gaming</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <a class="back" href="all-work.html">&larr; Back to All Work</a>
+  <div class="cat-label" id="cat-label"></div>
+  <h1 id="cat-title">Category</h1>
+
+  <div class="stack-wrap">
+    <div class="stack" id="stack"><!-- populated by script --></div>
+    <div class="stack-nav" id="stack-nav" style="display:none;">
+      <button id="stack-prev" aria-label="Previous">&larr;</button>
+      <span class="stack-counter" id="stack-counter"></span>
+      <button id="stack-next" aria-label="Next">&rarr;</button>
+    </div>
+  </div>
+</main>
+
+<script src="works-data.js"></script>
+<script>
+  function extractYouTubeId(url){
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=)([\w-]+)/,
+      /(?:youtu\.be\/)([\w-]+)/,
+      /(?:youtube\.com\/embed\/)([\w-]+)/,
+      /(?:youtube\.com\/shorts\/)([\w-]+)/
+    ];
+    for (const p of patterns){
+      const m = url.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function mediaFor(w){
+    // Prefer a real photo if there's no video, otherwise render the first video.
+    if (w.videos && w.videos.length){
+      const v = w.videos[0];
+      if (v.type === 'youtube'){
+        const id = extractYouTubeId(v.url);
+        if (id) return `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}" title="${w.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+      }
+      if (v.type === 'medal'){
+        const sep = v.url.includes('?') ? '&' : '?';
+        return `<div class="video-embed"><iframe src="${v.url}${sep}autoplay=0&muted=0&loop=0" title="${w.title}" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>`;
+      }
+      if (v.type === 'video'){
+        return `<div class="video-embed"><video src="${v.url}" controls playsinline></video></div>`;
+      }
+      if (v.type === 'instagram'){
+        return `<div class="ig-card"><span>This clip lives on Instagram.</span><a href="${v.url}" target="_blank" rel="noopener">Watch on Instagram &rarr;</a></div>`;
+      }
+      if (v.type === 'tiktok'){
+        return `<div class="ig-card"><span>This clip lives on TikTok.</span><a href="${v.url}" target="_blank" rel="noopener">Watch on TikTok &rarr;</a></div>`;
+      }
+    }
+    if (w.images && w.images.length){
+      return `<div class="frame-img"><img src="${w.images[0]}" alt="${w.title}"></div>`;
+    }
+    return '';
+  }
+
+  function render(){
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat') || '';
+    document.getElementById('cat-label').textContent = 'Category';
+    document.getElementById('cat-title').textContent = cat || 'Category';
+    document.title = (cat || 'Category') + ' | Optiflow Media';
+
+    const items = (WORKS || []).filter(w => w.category === cat && !w.isGalleryLink);
+    const stackEl = document.getElementById('stack');
+    const navEl = document.getElementById('stack-nav');
+
+    if (!items.length){
+      stackEl.innerHTML = '<div class="empty">Nothing in this category yet.</div>';
+      navEl.style.display = 'none';
+      return;
+    }
+
+    stackEl.innerHTML = items.map((w, i) => `
+      <div class="stack-card" data-index="${i}">
+        ${mediaFor(w)}
+        <div class="cat">${w.category}</div>
+        <h3>${w.title}</h3>
+        <p>${w.blurb}</p>
+        <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">View full credit &rarr;</a>
+      </div>
+    `).join('');
+
+    const cards = Array.from(stackEl.querySelectorAll('.stack-card'));
+    let current = 0;
+
+    function applyPositions(){
+      cards.forEach((card, i) => {
+        const pos = (i - current + cards.length) % cards.length;
+        card.classList.remove('pos-0', 'pos-1', 'pos-2', 'pos-hidden');
+        card.classList.add(pos <= 2 ? 'pos-' + pos : 'pos-hidden');
+      });
+      document.getElementById('stack-counter').textContent = (current + 1) + ' / ' + cards.length;
+    }
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if (i === current) return;
+        current = i;
+        applyPositions();
+      });
+    });
+
+    if (cards.length > 1){
+      navEl.style.display = 'flex';
+      document.getElementById('stack-next').addEventListener('click', () => {
+        current = (current + 1) % cards.length;
+        applyPositions();
+      });
+      document.getElementById('stack-prev').addEventListener('click', () => {
+        current = (current - 1 + cards.length) % cards.length;
+        applyPositions();
+      });
+    } else {
+      navEl.style.display = 'none';
+    }
+
+    applyPositions();
+  }
+
+  render();
+</script>
+
+</body>
+</html>

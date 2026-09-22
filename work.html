@@ -246,6 +246,14 @@
         <a href="${v.url}" target="_blank" rel="noopener">Watch on TikTok &rarr;</a>
       </div>`;
     }
+    if (v.type === 'medal'){
+      const sep = v.url.includes('?') ? '&' : '?';
+      const src = v.url + sep + 'autoplay=0&muted=0&loop=0';
+      return `<div class="video-embed"><iframe src="${src}" title="${v.title || 'Video'}" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>`;
+    }
+    if (v.type === 'video'){
+      return `<div class="video-embed"><video src="${v.url}" controls playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video></div>`;
+    }
     return '';
   }
 

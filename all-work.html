@@ -109,6 +109,17 @@
     border-bottom:1px solid var(--line);
     margin-bottom:6px;
   }
+  .cat-link{
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .cat-link:hover{ border-bottom-color:var(--accent); }
+  .cat-hint{
+    font-size:0.78rem;
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    color:var(--muted);
+  }
 
   .row{
     display:flex;
@@ -294,7 +305,7 @@
         </div>
       `).join('');
 
-      return `<div class="category-block"><h2>${cat}</h2>${rows}${galleryLinks}</div>`;
+      return `<div class="category-block"><h2><a href="category.html?cat=${encodeURIComponent(cat)}" class="cat-link">${cat}</a> <span class="cat-hint">view all &rarr;</span></h2>${rows}${galleryLinks}</div>`;
     }).join('');
   }
 
