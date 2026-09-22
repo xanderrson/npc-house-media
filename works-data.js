@@ -66,6 +66,7 @@ const WORKS = [
     id: "mochakk-torch",
     featured: true,
     featuredLink: true,
+    isGalleryLink: true,
     category: "Performance · Video",
     title: "Mochakk — The Torch",
     blurb: "A behind-the-scenes look — the full performance video from this set isn't uploaded yet.",
