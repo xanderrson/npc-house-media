@@ -163,6 +163,25 @@
     font-size:0.9rem;
   }
 
+  .gallery-link-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:14px 0;
+    border-top:1px dashed var(--line);
+    font-size:0.92rem;
+    color:var(--muted);
+    font-style:italic;
+  }
+  .gallery-link-row a{
+    font-style:normal;
+    text-decoration:none;
+    color:var(--accent);
+    border-bottom:1px solid var(--accent);
+    white-space:nowrap;
+  }
+
   .empty{ padding:80px 0; text-align:center; color:var(--muted); }
 </style>
 </head>
@@ -172,6 +191,7 @@
   <div class="wrap">
     <a href="index.html">Portfolio</a>
     <a href="all-work.html" class="active">All Work</a>
+    <a href="personal.html">Gaming</a>
   </div>
 </nav>
 
@@ -252,7 +272,11 @@
     const categoriesToShow = activeCategory === 'All' ? order : [activeCategory];
 
     contentEl.innerHTML = categoriesToShow.map(cat => {
-      const rows = (byCategory[cat] || []).map(w => `
+      const items = byCategory[cat] || [];
+      const normalItems = items.filter(w => !w.isGalleryLink);
+      const galleryLinkItems = items.filter(w => w.isGalleryLink);
+
+      const rows = normalItems.map(w => `
         <a class="row" href="work.html?id=${encodeURIComponent(w.id)}">
           <div class="row-thumb">${thumbFor(w)}</div>
           <div class="row-text">
@@ -262,7 +286,15 @@
           <div class="row-arrow">View &rarr;</div>
         </a>
       `).join('');
-      return `<div class="category-block"><h2>${cat}</h2>${rows}</div>`;
+
+      const galleryLinks = galleryLinkItems.filter(w => w.folder).map(w => `
+        <div class="gallery-link-row">
+          <span>Looking for more? There's a broader set of ${cat.toLowerCase()} work not individually listed here.</span>
+          <a href="${w.folder}" target="_blank" rel="noopener">Browse full gallery &rarr;</a>
+        </div>
+      `).join('');
+
+      return `<div class="category-block"><h2>${cat}</h2>${rows}${galleryLinks}</div>`;
     }).join('');
   }
 

@@ -16,6 +16,13 @@
      folder   - the Dropbox folder (or wherever) with the FULL set for this
                 project — this is what the "See full gallery" button on the
                 detail page links out to. Leave as "" if you don't have one yet.
+     isGalleryLink - optional, only set to true for an entry that ISN'T a
+                specific named piece of work, but just a folder of extra
+                material (e.g. a general "browse more" Dropbox folder). On
+                the All Work page, entries like this render as a small
+                "Browse full gallery" link at the end of their category
+                instead of a normal clickable project row. Omit this field
+                entirely for a real, specific project.
      videos   - an array of video links for this project, or [] if none.
                 Each one is an object: { type: "youtube", url: "..." }
                 or { type: "instagram", url: "..." }
@@ -64,6 +71,7 @@ const WORKS = [
   {
     id: "video-digital-reel",
     featured: true,
+    isGalleryLink: true,
     category: "Digital media",
     title: "Video &amp; digital media reel",
     blurb: "A cut of short-form content built for social and campaign use.",

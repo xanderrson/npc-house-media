@@ -266,6 +266,102 @@
     padding:0 24px;
   }
 
+  /* ---------- FAVORITES (rolodex stack) ---------- */
+  .fav-stack-wrap{ max-width:720px; }
+  .fav-stack{
+    position:relative;
+    height:600px;
+  }
+  @media (max-width:600px){ .fav-stack{ height:560px; } }
+  .favorite-card{
+    position:absolute;
+    inset:0;
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:22px;
+    box-sizing:border-box;
+    transition:transform 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease, box-shadow 0.3s ease;
+    overflow:hidden;
+  }
+  .favorite-card.pos-0{
+    transform:none;
+    z-index:3;
+    opacity:1;
+    box-shadow:0 10px 30px rgba(32,29,24,0.14);
+    cursor:default;
+  }
+  .favorite-card.pos-1{
+    transform:translateY(20px) scale(0.96) rotate(-1.8deg);
+    z-index:2;
+    opacity:0.7;
+    cursor:pointer;
+  }
+  .favorite-card.pos-2{
+    transform:translateY(38px) scale(0.92) rotate(1.8deg);
+    z-index:1;
+    opacity:0.5;
+    cursor:pointer;
+  }
+  .favorite-card .video-embed{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--frame-bg);
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .favorite-card.pos-1 .video-embed, .favorite-card.pos-2 .video-embed{ pointer-events:none; }
+  .favorite-card .video-embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .favorite-card .cat{
+    font-size:0.78rem;
+    color:var(--accent);
+    font-family:'Oswald',sans-serif;
+    margin-bottom:6px;
+  }
+  .favorite-card h3{
+    font-size:1.2rem;
+    font-weight:500;
+    margin-bottom:6px;
+  }
+  .favorite-card p{
+    color:var(--muted);
+    font-size:0.95rem;
+    max-width:60ch;
+  }
+  .favorite-card .view-link{
+    display:inline-block;
+    margin-top:8px;
+    font-size:0.9rem;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+  }
+  .fav-nav{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:24px;
+  }
+  .fav-nav button{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink);
+    font-size:1rem;
+    cursor:pointer;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .fav-nav button:hover{ border-color:var(--accent); background:var(--accent); color:var(--bg); }
+  .fav-counter{ font-size:0.9rem; color:var(--muted); font-family:'Oswald',sans-serif; }
+
   /* ---------- CAPABILITIES (negative frame — inverted band) ---------- */
   .negative{
     background:var(--dark-bg);
@@ -365,6 +461,7 @@
   <div class="wrap">
     <a href="index.html" class="active">Portfolio</a>
     <a href="all-work.html">All Work</a>
+    <a href="personal.html">Gaming</a>
   </div>
 </nav>
 
@@ -389,9 +486,9 @@
 </header>
 
 <div class="credit wrap">
-  On-site and post-production work for <strong>Dim Mak Records</strong>,
-  <strong>X Games Sacramento</strong>, and festival stages including
-  <strong>Lightning in a Bottle</strong>.
+  On-site and post-production work across festival stages like
+  <strong>Crssdfest</strong> and <strong>Lightning in a Bottle</strong>,
+  <strong>X Games</strong>, and <strong>Dim Mak Records</strong>.
 </div>
 
 <section id="work" class="wrap">
@@ -402,6 +499,21 @@
 
   <div class="grid" id="work-grid"><!-- populated by the WORKS list at the bottom of this file --></div>
 
+</section>
+
+<section id="favorites" class="wrap">
+  <div class="section-head">
+    <h2>A few favorites</h2>
+    <p>Pieces I'm especially proud of — full video, right here.</p>
+  </div>
+  <div class="fav-stack-wrap">
+    <div class="fav-stack" id="favorites-list"><!-- populated by the WORKS list at the bottom of this file --></div>
+    <div class="fav-nav">
+      <button id="fav-prev" aria-label="Previous favorite">&larr;</button>
+      <span class="fav-counter" id="fav-counter"></span>
+      <button id="fav-next" aria-label="Next favorite">&rarr;</button>
+    </div>
+  </div>
 </section>
 
 <section class="negative">
@@ -495,6 +607,79 @@
     }).join('');
   }
   renderWork();
+
+  const FAVORITE_IDS = ["james-brown-laidback-luke-lyric", "ookay-linney-drive-away-slow", "henry-fong-64-impala"];
+
+  function extractYouTubeId(url){
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=)([\w-]+)/,
+      /(?:youtu\.be\/)([\w-]+)/,
+      /(?:youtube\.com\/embed\/)([\w-]+)/,
+      /(?:youtube\.com\/shorts\/)([\w-]+)/
+    ];
+    for (const p of patterns){
+      const m = url.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function renderFavorites(){
+    const stackEl = document.getElementById('favorites-list');
+    const items = FAVORITE_IDS.map(id => WORKS.find(w => w.id === id)).filter(Boolean);
+    if (!items.length) return;
+
+    // Build one fixed card element per item — never recreated, only repositioned.
+    stackEl.innerHTML = items.map((w, i) => {
+      const v = w.videos && w.videos[0];
+      const ytId = v && v.type === 'youtube' ? extractYouTubeId(v.url) : null;
+      const embed = ytId
+        ? `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${ytId}" title="${w.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
+        : '';
+      return `
+        <div class="favorite-card" data-index="${i}">
+          ${embed}
+          <div class="cat">${w.category}</div>
+          <h3>${w.title}</h3>
+          <p>${w.blurb}</p>
+          <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">View full credit &rarr;</a>
+        </div>
+      `;
+    }).join('');
+
+    const cards = Array.from(stackEl.querySelectorAll('.favorite-card'));
+    let current = 0;
+
+    function applyPositions(){
+      cards.forEach((card, i) => {
+        const pos = (i - current + cards.length) % cards.length;
+        card.classList.remove('pos-0', 'pos-1', 'pos-2');
+        card.classList.add('pos-' + pos);
+      });
+      document.getElementById('fav-counter').textContent = (current + 1) + ' / ' + cards.length;
+    }
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if (i === current) return;
+        current = i;
+        applyPositions();
+      });
+    });
+
+    document.getElementById('fav-next').addEventListener('click', () => {
+      current = (current + 1) % cards.length;
+      applyPositions();
+    });
+    document.getElementById('fav-prev').addEventListener('click', () => {
+      current = (current - 1 + cards.length) % cards.length;
+      applyPositions();
+    });
+
+    applyPositions();
+  }
+
+  renderFavorites();
 
   function pad(n){ return n.toString().padStart(2,'0'); }
   function tick(){
