@@ -412,9 +412,9 @@ const WORKS = [
     id: "tiktok-cod-mw4-beta",
     category: "Personal · Gaming",
     title: "Call of Duty MW4 Beta",
-    blurb: "Posted to TikTok.",
+    blurb: "Posted to YouTube.",
     images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7681436333021121806?_r=1&_t=ZT-99oub2eJGn7" }],
+    videos: [{ type: "youtube", url: "https://youtube.com/shorts/r1XwR8WLY3o?si=uZA57xkaxq6C-kBW" }],
     folder: ""
   },
   {

@@ -266,13 +266,26 @@
     padding:0 24px;
   }
 
-  /* ---------- FAVORITES (rolodex stack) ---------- */
-  .fav-stack-wrap{ max-width:720px; margin:0 auto; }
+  /* ---------- FAVORITES (rolodex stacks — landscape + vertical) ---------- */
+  .favorites-row{
+    display:flex;
+    gap:56px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .stack-label{
+    font-size:0.78rem;
+    color:var(--muted);
+    font-family:'Oswald',sans-serif;
+    margin-bottom:14px;
+  }
+
+  .fav-stack-wrap{ max-width:640px; flex:1 1 560px; }
   .fav-stack{
     position:relative;
-    height:660px;
+    height:600px;
   }
-  @media (max-width:600px){ .fav-stack{ height:600px; } }
+  @media (max-width:600px){ .fav-stack{ height:560px; } }
   .favorite-card{
     position:absolute;
     inset:0;
@@ -317,7 +330,7 @@
     margin-bottom:18px;
   }
   .favorite-card.pos-1 .video-embed, .favorite-card.pos-2 .video-embed{ pointer-events:none; }
-  .favorite-card .video-embed iframe{
+  .favorite-card .video-embed iframe, .favorite-card .video-embed video{
     position:absolute;
     inset:0;
     width:100%;
@@ -368,6 +381,103 @@
   }
   .fav-nav button:hover{ border-color:var(--accent); background:var(--accent); color:var(--bg); }
   .fav-counter{ font-size:0.9rem; color:var(--muted); font-family:'Oswald',sans-serif; }
+
+  /* ---------- vertical stack (9:16 pieces) ---------- */
+  .vert-stack-wrap{ max-width:300px; flex:0 0 300px; }
+  .vert-stack{
+    position:relative;
+    height:700px;
+  }
+  @media (max-width:600px){ .vert-stack{ height:640px; } }
+  .vertical-card{
+    position:absolute;
+    inset:0;
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:16px;
+    box-sizing:border-box;
+    transition:transform 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease, box-shadow 0.3s ease;
+    overflow:hidden;
+  }
+  .vertical-card.pos-0{
+    transform:none;
+    z-index:3;
+    opacity:1;
+    box-shadow:0 10px 30px rgba(32,29,24,0.14);
+    cursor:default;
+  }
+  .vertical-card.pos-1{
+    transform:translateY(26px) scale(0.94) rotate(-3deg);
+    z-index:2;
+    opacity:0.85;
+    cursor:pointer;
+  }
+  .vertical-card.pos-2{
+    transform:translateY(48px) scale(0.89) rotate(3deg);
+    z-index:1;
+    opacity:0.65;
+    cursor:pointer;
+  }
+  .vertical-card.pos-hidden{
+    transform:translateY(60px) scale(0.85) rotate(4deg);
+    z-index:0;
+    opacity:0;
+    pointer-events:none;
+  }
+  .vertical-card .video-embed{
+    position:relative;
+    width:100%;
+    aspect-ratio:9/16;
+    background:var(--frame-bg);
+    overflow:hidden;
+    margin-bottom:14px;
+  }
+  .vertical-card.pos-1 .video-embed, .vertical-card.pos-2 .video-embed{ pointer-events:none; }
+  .vertical-card .video-embed iframe, .vertical-card .video-embed video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .vertical-card .ig-card{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    padding:14px 16px;
+    border:1px solid var(--line);
+    margin-bottom:14px;
+    font-size:0.85rem;
+  }
+  .vertical-card .ig-card a{
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+    width:fit-content;
+  }
+  .vertical-card .cat{
+    font-size:0.72rem;
+    color:var(--accent);
+    font-family:'Oswald',sans-serif;
+    margin-bottom:4px;
+  }
+  .vertical-card h3{
+    font-size:1rem;
+    font-weight:500;
+    margin-bottom:4px;
+  }
+  .vertical-card p{
+    color:var(--muted);
+    font-size:0.85rem;
+  }
+  .vertical-card .view-link{
+    display:inline-block;
+    margin-top:6px;
+    font-size:0.82rem;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+  }
 
   /* ---------- CAPABILITIES (negative frame — inverted band) ---------- */
   .negative{
@@ -513,12 +623,24 @@
     <h2>A few favorites</h2>
     <p>Pieces I'm especially proud of — full video, right here.</p>
   </div>
-  <div class="fav-stack-wrap">
-    <div class="fav-stack" id="favorites-list"><!-- populated by the WORKS list at the bottom of this file --></div>
-    <div class="fav-nav">
-      <button id="fav-prev" aria-label="Previous favorite">&larr;</button>
-      <span class="fav-counter" id="fav-counter"></span>
-      <button id="fav-next" aria-label="Next favorite">&rarr;</button>
+  <div class="favorites-row">
+    <div class="fav-stack-wrap">
+      <div class="stack-label">Landscape</div>
+      <div class="fav-stack" id="favorites-list"><!-- populated by the WORKS list at the bottom of this file --></div>
+      <div class="fav-nav">
+        <button id="fav-prev" aria-label="Previous favorite">&larr;</button>
+        <span class="fav-counter" id="fav-counter"></span>
+        <button id="fav-next" aria-label="Next favorite">&rarr;</button>
+      </div>
+    </div>
+    <div class="vert-stack-wrap">
+      <div class="stack-label">Vertical</div>
+      <div class="vert-stack" id="vertical-list"><!-- populated by the WORKS list at the bottom of this file --></div>
+      <div class="fav-nav">
+        <button id="vert-prev" aria-label="Previous vertical piece">&larr;</button>
+        <span class="fav-counter" id="vert-counter"></span>
+        <button id="vert-next" aria-label="Next vertical piece">&rarr;</button>
+      </div>
     </div>
   </div>
 </section>
@@ -619,6 +741,7 @@
   renderWork();
 
   const FAVORITE_IDS = ["james-brown-laidback-luke-lyric", "ookay-linney-drive-away-slow", "henry-fong-64-impala", "pump-it-up-steve-aoki"];
+  const VERTICAL_FAVORITE_IDS = ["xgames-winter-draft-onsite-edit", "crssd-onsite-day2", "fisher-chris-lake-ad", "trace-sound-nightclub"];
 
   function extractYouTubeId(url){
     const patterns = [
@@ -634,30 +757,45 @@
     return null;
   }
 
-  function renderFavorites(){
-    const stackEl = document.getElementById('favorites-list');
-    const items = FAVORITE_IDS.map(id => WORKS.find(w => w.id === id)).filter(Boolean);
+  function favoriteMedia(w){
+    const v = w.videos && w.videos[0];
+    if (!v) return '';
+    if (v.type === 'youtube'){
+      const id = extractYouTubeId(v.url);
+      if (id) return `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}" title="${w.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+    }
+    if (v.type === 'video'){
+      return `<div class="video-embed"><video src="${v.url}" controls playsinline></video></div>`;
+    }
+    if (v.type === 'medal'){
+      const sep = v.url.includes('?') ? '&' : '?';
+      return `<div class="video-embed"><iframe src="${v.url}${sep}autoplay=0&muted=0&loop=0" title="${w.title}" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>`;
+    }
+    if (v.type === 'instagram'){
+      return `<div class="ig-card"><span>This clip lives on Instagram.</span><a href="${v.url}" target="_blank" rel="noopener">Watch on Instagram &rarr;</a></div>`;
+    }
+    if (v.type === 'tiktok'){
+      return `<div class="ig-card"><span>This clip lives on TikTok.</span><a href="${v.url}" target="_blank" rel="noopener">Watch on TikTok &rarr;</a></div>`;
+    }
+    return '';
+  }
+
+  function buildRolodex(ids, opts){
+    const stackEl = document.getElementById(opts.stackId);
+    const items = ids.map(id => WORKS.find(w => w.id === id)).filter(Boolean);
     if (!items.length) return;
 
-    // Build one fixed card element per item — never recreated, only repositioned.
-    stackEl.innerHTML = items.map((w, i) => {
-      const v = w.videos && w.videos[0];
-      const ytId = v && v.type === 'youtube' ? extractYouTubeId(v.url) : null;
-      const embed = ytId
-        ? `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${ytId}" title="${w.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
-        : '';
-      return `
-        <div class="favorite-card" data-index="${i}">
-          ${embed}
-          <div class="cat">${w.category}</div>
-          <h3>${w.title}</h3>
-          <p>${w.blurb}</p>
-          <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">View full credit &rarr;</a>
-        </div>
-      `;
-    }).join('');
+    stackEl.innerHTML = items.map((w, i) => `
+      <div class="${opts.cardClass}" data-index="${i}">
+        ${favoriteMedia(w)}
+        <div class="cat">${w.category}</div>
+        <h3>${w.title}</h3>
+        <p>${w.blurb}</p>
+        <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">View full credit &rarr;</a>
+      </div>
+    `).join('');
 
-    const cards = Array.from(stackEl.querySelectorAll('.favorite-card'));
+    const cards = Array.from(stackEl.querySelectorAll('.' + opts.cardClass));
     let current = 0;
 
     function applyPositions(){
@@ -666,7 +804,7 @@
         card.classList.remove('pos-0', 'pos-1', 'pos-2', 'pos-hidden');
         card.classList.add(pos <= 2 ? 'pos-' + pos : 'pos-hidden');
       });
-      document.getElementById('fav-counter').textContent = (current + 1) + ' / ' + cards.length;
+      document.getElementById(opts.counterId).textContent = (current + 1) + ' / ' + cards.length;
     }
 
     cards.forEach((card, i) => {
@@ -677,11 +815,11 @@
       });
     });
 
-    document.getElementById('fav-next').addEventListener('click', () => {
+    document.getElementById(opts.nextId).addEventListener('click', () => {
       current = (current + 1) % cards.length;
       applyPositions();
     });
-    document.getElementById('fav-prev').addEventListener('click', () => {
+    document.getElementById(opts.prevId).addEventListener('click', () => {
       current = (current - 1 + cards.length) % cards.length;
       applyPositions();
     });
@@ -689,7 +827,16 @@
     applyPositions();
   }
 
-  renderFavorites();
+  buildRolodex(FAVORITE_IDS, {
+    stackId: 'favorites-list', cardClass: 'favorite-card',
+    counterId: 'fav-counter', nextId: 'fav-next', prevId: 'fav-prev'
+  });
+
+  buildRolodex(VERTICAL_FAVORITE_IDS, {
+    stackId: 'vertical-list', cardClass: 'vertical-card',
+    counterId: 'vert-counter', nextId: 'vert-next', prevId: 'vert-prev'
+  });
+
 
   function pad(n){ return n.toString().padStart(2,'0'); }
   function tick(){
