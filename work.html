@@ -269,11 +269,13 @@
       return;
     }
 
-    const shots = (entry.images && entry.images.length)
+    const hasVideo = entry.videos && entry.videos.length;
+
+    const shots = (!hasVideo && entry.images && entry.images.length)
       ? entry.images.map(src => `<div class="shot"><img src="${src}" alt="${entry.title}"></div>`).join('')
       : '';
 
-    const videosHtml = (entry.videos && entry.videos.length)
+    const videosHtml = hasVideo
       ? `<div class="videos">${entry.videos.map(renderVideo).join('')}</div>`
       : '';
 

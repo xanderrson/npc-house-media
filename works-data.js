@@ -167,8 +167,20 @@ const WORKS = [
     category: "Live event · On-site editing & Recaps",
     title: "Crssdfest 2026 — Day 1 Recap",
     blurb: "Produced on-site for Crssdfest 2026.",
-    images: [],
-    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/DV6xK6RkiwL/?stkn=NTc4MTIwNjQ2YQ==" }],
+    images: ["images/crssd-onsite-1.jpg"],
+    videos: [
+      { type: "video", url: "https://www.dropbox.com/scl/fi/kpp69hxoj049pk5jbvoxa/CRSSD-2026-DAY-1-on-site-edit.MP4?rlkey=c3f07rsji0bat2ug187iv5s5c&st=58py6gfi&raw=1" },
+      { type: "instagram", url: "https://www.instagram.com/reel/DV6xK6RkiwL/?stkn=NTc4MTIwNjQ2YQ==" }
+    ],
+    folder: ""
+  },
+  {
+    id: "crssd-onsite-day2",
+    category: "Live event · On-site editing & Recaps",
+    title: "Crssdfest 2026 — Day 2 Recap",
+    blurb: "Produced on-site for Crssdfest 2026.",
+    images: ["images/crssd-onsite-day2.jpg"],
+    videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/o9hcu5cbflwry32pld1n4/CRSSD-2026-DAY-2-on-site-edit.MP4?rlkey=cstxl5fddmdt2zurgh9aifzb8&st=0heglox2&raw=1" }],
     folder: ""
   },
   {
@@ -176,8 +188,11 @@ const WORKS = [
     category: "Live event · On-site editing & Recaps",
     title: "Odd Mob — Live set (Crssdfest 2026)",
     blurb: "On-site cut of the Odd Mob live set at Crssdfest 2026.",
-    images: [],
-    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/DWZhtfwhcMb/?stkn=NjZiM2M3MzIxNA%3D%3D" }],
+    images: ["images/odd-mob-crssd-2026.jpg"],
+    videos: [
+      { type: "video", url: "https://www.dropbox.com/scl/fi/rkiw3cxxrh1cyfhq08bua/Odd-Mob-CRSSD-2026-on-site-edit.MP4?rlkey=bq9dgoqa6ln43cjl6fmvkkvf2&st=2sq4yleo&raw=1" },
+      { type: "instagram", url: "https://www.instagram.com/reel/DWZhtfwhcMb/?stkn=NjZiM2M3MzIxNA%3D%3D" }
+    ],
     folder: ""
   },
   {
@@ -195,9 +210,9 @@ const WORKS = [
   {
     id: "xgames-winter-draft-footage",
     category: "Live event · On-site editing & Recaps",
-    title: "X Games — Winter Draft (Footage)",
-    blurb: "Shot and provided some footage for this piece.",
-    images: [],
+    title: "X Games — Winter Draft — Athlete Arrivals",
+    blurb: "A recap of the Winter Draft event, including top-down and fisheye footage of athletes as they arrived and posed for the camera.",
+    images: ["images/xgames-winter-draft-footage.jpg"],
     videos: [{ type: "instagram", url: "https://www.instagram.com/reel/Ddb-qI4EQ3g/?stkn=NTc4MTIwNjQ2YQ==" }],
     folder: ""
   },
@@ -207,7 +222,10 @@ const WORKS = [
     title: "Trace Music — Sound Nightclub",
     blurb: "Edited and produced.",
     images: [],
-    videos: [{ type: "instagram", url: "https://www.instagram.com/reel/DP4Ye3pEdSA/?stkn=NTc4MTIwNjQ2YQ==" }],
+    videos: [
+      { type: "video", url: "https://www.dropbox.com/scl/fi/crz6w3rt68zht1j1z0z69/Trace-Support-Sound-LA-Social-Ad-2.MP4?rlkey=3j0g9hrw0hl39bafze3n6wxmf&st=kcb31qsg&raw=1" },
+      { type: "instagram", url: "https://www.instagram.com/reel/DP4Ye3pEdSA/?stkn=NTc4MTIwNjQ2YQ==" }
+    ],
     folder: ""
   },
   {
@@ -521,7 +539,7 @@ const WORKS = [
     category: "Performance · Video",
     title: "Pablo Fierro — Sound",
     blurb: "Live performance coverage at Sound.",
-    images: [],
+    images: ["images/pablo-fierro-sound.jpg"],
     videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/rc9h15x80v3wzctqdz1l0/Pablo-Fierro-Sound.mov?rlkey=wt66fffd7jfcb1iibn79q53z4&st=vfx6cduv&raw=1" }],
     folder: ""
   },
@@ -539,7 +557,7 @@ const WORKS = [
     category: "Performance · Video",
     title: "Maz — Lightning in a Bottle",
     blurb: "Live performance coverage at Lightning in a Bottle.",
-    images: [],
+    images: ["images/maz-litb.jpg"],
     videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/tqc07evvzlhgy6hzq4wb9/Maz-Lightning-in-a-Bottle-Horizontal-Cut-2.mp4?rlkey=w5chahyd4utama8m8rfbvc6m8&st=ntiwd4bb&raw=1" }],
     folder: ""
   },
@@ -602,7 +620,7 @@ const WORKS = [
     category: "Performance · Video",
     title: "Deorro — The Torch, LA",
     blurb: "Live performance coverage at The Torch in LA.",
-    images: [],
+    images: ["images/deorro-torch-la.jpg"],
     videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/lnibl0u436hddizhls6xp/Deorro-1.mp4?rlkey=tx503gcsjh88bmrxdde4rubue&st=xeok814k&raw=1" }],
     folder: ""
   },
