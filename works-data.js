@@ -221,7 +221,7 @@ const WORKS = [
     category: "Brand / ads",
     title: "Trace Music — Sound Nightclub",
     blurb: "Edited and produced.",
-    images: [],
+    images: ["images/trace-sound-nightclub.jpg"],
     videos: [
       { type: "video", url: "https://www.dropbox.com/scl/fi/crz6w3rt68zht1j1z0z69/Trace-Support-Sound-LA-Social-Ad-2.MP4?rlkey=3j0g9hrw0hl39bafze3n6wxmf&st=kcb31qsg&raw=1" },
       { type: "instagram", url: "https://www.instagram.com/reel/DP4Ye3pEdSA/?stkn=NTc4MTIwNjQ2YQ==" }
@@ -231,10 +231,19 @@ const WORKS = [
   {
     id: "laidback-luke-gasoline",
     category: "Brand / ads",
-    title: "Laidback Luke — Gasoline",
+    title: "Laidback Luke & Linney — Gasoline (Release Day Promo)",
     blurb: "Shot, directed, produced, and edited.",
-    images: [],
+    images: ["images/laidback-luke-gasoline.jpg"],
     videos: [{ type: "instagram", url: "https://www.instagram.com/reel/DLav5LMB3LH/?stkn=NTc4MTIwNjQ2YQ==" }],
+    folder: ""
+  },
+  {
+    id: "laidback-luke-linney-gasoline-teaser",
+    category: "Brand / ads",
+    title: "Laidback Luke & Linney — Gasoline (Teaser)",
+    blurb: "Teaser edit for the Gasoline release.",
+    images: [],
+    videos: [{ type: "youtube", url: "https://youtube.com/shorts/qpF16DafLDc?si=yf9xbCYPpG6igxgy" }],
     folder: ""
   },
   {
