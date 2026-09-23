@@ -118,13 +118,13 @@
     align-items:center;
     justify-content:center;
   }
-  .row-thumb img{
+  .row-thumb img, .row-thumb video{
     width:100%; height:100%;
     object-fit:cover;
     display:block;
     transition:transform 0.3s ease;
   }
-  .row:hover .row-thumb img{ transform:scale(1.05); }
+  .row:hover .row-thumb img, .row:hover .row-thumb video{ transform:scale(1.05); }
   .row-thumb .platform-label{
     color:var(--frame-muted);
     font-size:0.7rem;
@@ -203,6 +203,8 @@
       }
       if (v.type === 'instagram') return `<span class="platform-label">Instagram clip</span>`;
       if (v.type === 'tiktok') return `<span class="platform-label">TikTok clip</span>`;
+      if (v.type === 'medal') return `<span class="platform-label">Medal clip</span>`;
+      if (v.type === 'video') return `<video src="${v.url}" muted preload="metadata"></video>`;
     }
     return `<span class="platform-label">No preview</span>`;
   }
