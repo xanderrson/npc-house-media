@@ -190,6 +190,7 @@
     color:var(--ink);
     font-size:1rem;
     cursor:pointer;
+    z-index:10;
   }
   .spotlight-close:hover{ border-color:var(--accent); }
   .spotlight .video-embed{
@@ -247,6 +248,53 @@
     text-decoration:none;
     border-bottom:1px solid var(--accent);
   }
+
+
+  /* stacked chip cue (grouped photo set) */
+  .chip.stacked{
+    box-shadow:5px 5px 0 -1px var(--bg), 5px 5px 0 0 var(--line), 10px 10px 0 -1px var(--bg), 10px 10px 0 0 var(--line), 0 4px 14px rgba(32,29,24,0.10);
+  }
+  .chip.stacked:hover{
+    box-shadow:5px 5px 0 -1px var(--bg), 5px 5px 0 0 var(--line), 10px 10px 0 -1px var(--bg), 10px 10px 0 0 var(--line), 0 10px 26px rgba(32,29,24,0.18);
+  }
+  .chip .chip-badge{
+    position:absolute; right:10px; top:10px;
+    background:rgba(32,29,24,0.78); color:var(--bg);
+    font-size:0.62rem; font-family:'Oswald',sans-serif; letter-spacing:0.04em;
+    padding:2px 7px; border-radius:2px; pointer-events:none;
+  }
+
+  /* rolodex (one photo per setting) */
+  .rolo{ margin:34px 28px 18px 0; }
+  .rolo-stage{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/3;
+    cursor:pointer;
+    user-select:none;
+  }
+  .rolo-card{
+    position:absolute; inset:0;
+    background:var(--frame-bg);
+    border:1px solid var(--line);
+    box-shadow:0 8px 20px rgba(32,29,24,0.22);
+    overflow:hidden;
+    transition:transform 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.45s ease;
+  }
+  .rolo-card img{ width:100%; height:100%; object-fit:contain; display:block; background:var(--frame-bg); }
+  .rolo-card.pos-0{ transform:translate(0,0) scale(1); opacity:1; z-index:3; }
+  .rolo-card.pos-1{ transform:translate(14px,-12px) scale(0.96); opacity:0.9; z-index:2; }
+  .rolo-card.pos-2{ transform:translate(28px,-24px) scale(0.92); opacity:0.75; z-index:1; }
+  .rolo-card.pos-hidden{ transform:translate(0,0) scale(0.9); opacity:0; z-index:0; pointer-events:none; }
+  .rolo-meta{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top:14px; font-size:0.8rem; color:var(--muted);
+  }
+  .rolo-btns button{
+    border:1px solid var(--line); background:var(--bg); color:var(--ink);
+    width:30px; height:30px; border-radius:50%; cursor:pointer; margin-left:6px;
+  }
+  .rolo-btns button:hover{ border-color:var(--accent); }
 
   /* ---------- LIST (fallback, plain) ---------- */
   .list-head{
@@ -368,7 +416,7 @@
 
   function fullMedia(w){
     if (w.videos && w.videos.length){
-      const v = w.videos[0];
+      return w.videos.map(v => {
       if (v.type === 'youtube'){
         const id = extractYouTubeId(v.url);
         if (id) return `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}" title="${w.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
@@ -377,12 +425,44 @@
         const sep = v.url.includes('?') ? '&' : '?';
         return `<div class="video-embed"><iframe src="${v.url}${sep}autoplay=0&muted=0&loop=0" title="${w.title}" frameborder="0" allow="autoplay" allowfullscreen></iframe></div>`;
       }
-      if (v.type === 'video') return `<div class="video-embed"><video src="${v.url}" controls playsinline></video></div>`;
+      if (v.type === 'video') return `<div class="video-embed"><video src="${v.url}" controls playsinline preload="metadata"${v.poster ? ` poster="${v.poster}"` : ''}></video></div>`;
       if (v.type === 'instagram') return `<div class="ig-card"><span>This clip lives on Instagram.</span><a href="${v.url}" target="_blank" rel="noopener">Watch on Instagram &rarr;</a></div>`;
       if (v.type === 'tiktok') return `<div class="ig-card"><span>This clip lives on TikTok.</span><a href="${v.url}" target="_blank" rel="noopener">Watch on TikTok &rarr;</a></div>`;
+      return '';
+      }).join('');
+    }
+    if (w.rolodex && w.rolodex.length > 1){
+      return `<div class="rolo" id="rolo">
+        <div class="rolo-stage" id="rolo-stage">
+          ${w.rolodex.map((src, i) => `<div class="rolo-card" data-i="${i}"><img src="${src}" alt="${w.title}"></div>`).join('')}
+        </div>
+        <div class="rolo-meta">
+          <span id="rolo-count">1 / ${w.rolodex.length} &middot; click to flip</span>
+          <span class="rolo-btns"><button id="rolo-prev" aria-label="Previous photo">&lsaquo;</button><button id="rolo-next" aria-label="Next photo">&rsaquo;</button></span>
+        </div>
+      </div>`;
     }
     if (w.images && w.images.length) return `<div class="frame-img"><img src="${w.images[0]}" alt="${w.title}"></div>`;
     return '';
+  }
+
+  function initRolodex(n){
+    const stage = document.getElementById('rolo-stage');
+    if (!stage) return;
+    const cards = Array.from(stage.querySelectorAll('.rolo-card'));
+    let cur = 0;
+    function paint(){
+      cards.forEach((el, i) => {
+        const d = (i - cur + n) % n;
+        el.className = 'rolo-card ' + (d === 0 ? 'pos-0' : d === 1 ? 'pos-1' : d === 2 ? 'pos-2' : 'pos-hidden');
+      });
+      document.getElementById('rolo-count').innerHTML = (cur + 1) + ' / ' + n + ' &middot; click to flip';
+    }
+    function go(step){ cur = (cur + step + n) % n; paint(); }
+    stage.addEventListener('click', () => go(1));
+    document.getElementById('rolo-next').addEventListener('click', () => go(1));
+    document.getElementById('rolo-prev').addEventListener('click', () => go(-1));
+    paint();
   }
 
   function thumbFor(w){
@@ -407,8 +487,9 @@
       <div class="cat">${w.category}</div>
       <h3>${w.title}</h3>
       <p>${w.blurb}</p>
-      <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">View full credit &rarr;</a>
+      <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">${(w.images && w.images.length > 1 && !(w.videos && w.videos.length)) ? `View all ${w.images.length} photos` : 'View full credit'} &rarr;</a>
     `;
+    if (w.rolodex && w.rolodex.length > 1 && !(w.videos && w.videos.length)) initRolodex(w.rolodex.length);
     document.getElementById('scrim').classList.add('open');
     document.getElementById('spotlight').classList.add('open');
   }
@@ -446,12 +527,13 @@
       const z = Math.floor(seeded(i, 5) * 20);
 
       return `
-        <div class="chip"
+        <div class="chip${(w.images && w.images.length > 1 && (!w.videos || !w.videos.length)) ? ' stacked' : ''}"
              data-index="${i}"
              style="left:${left}px; top:${top}px; width:${chipW}px; height:${chipH + 22}px;
                     transform:rotate(${rotation.toFixed(1)}deg); z-index:${z};
                     --hover-transform:rotate(0deg) scale(1.08);">
           <div class="chip-media">${chipThumb(w)}</div>
+          ${(w.images && w.images.length > 1 && (!w.videos || !w.videos.length)) ? `<span class="chip-badge">${w.images.length} photos</span>` : ''}
           <div class="chip-title">${w.title}</div>
         </div>
       `;

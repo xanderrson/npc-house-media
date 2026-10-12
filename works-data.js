@@ -96,30 +96,6 @@ const WORKS = [
     folder: "https://www.dropbox.com/scl/fo/8guvlxq1w7za1twiyo6k8/ADVD-a2oReC-yHLgR7jlD7A?rlkey=4340kpsygs21d9uy9c2ls2zk2&st=q884b7ri&dl=0"
   },
   {
-    id: "hot-since-82-framework-kneedeep",
-    featured: true,
-    featuredLink: true,
-    category: "Performance · Photography",
-    title: "Hot Since 82 — Framework x Knee Deep, LA",
-    blurb: "Performance photography for a Framework x Knee Deep show in LA.",
-    images: [
-      "https://www.dropbox.com/scl/fi/s2phthjfq7ag54c2dkarz/HS82-6.jpg?rlkey=b5sywaegnk8o4yy8x5wcayel9&st=opfe5sn0&raw=1"
-    ],
-    videos: [],
-    folder: ""
-  },
-  {
-    id: "lucalush-litb",
-    category: "Performance · Photography",
-    title: "LucaLush — Lightning in a Bottle",
-    blurb: "Stills coverage across a full festival set, shot for artist promo use.",
-    images: [
-      "https://www.dropbox.com/scl/fi/3jjyynmo9m947hfhbrfwx/LucaLush-Lightning-in-a-Bottle.jpg?rlkey=bq7kk77f4ysm7jycds78odi3f&st=hkglggvu&raw=1"
-    ],
-    videos: [],
-    folder: "https://www.dropbox.com/scl/fo/sj1leor4miilkkk8fk3fs/AFrRfELAKAiwM40GQ1YJcL0?rlkey=aow8g8aqgeakkg6fceedlwg35&st=7qe4sshe&dl=0"
-  },
-  {
     id: "video-digital-reel",
     featured: true,
     featuredLink: true,
@@ -138,13 +114,68 @@ const WORKS = [
     featured: true,
     featuredLink: true,
     category: "Photography",
-    title: "Impala64 — Promo photo",
-    blurb: "Promotional portrait shot for the artist Impala64.",
+    title: "Henry Fong & Chyl — 64 Impala",
+    blurb: "Photoshoot stills and promo artwork for the “64 Impala” release. Photoshoot shot by Alex Estrada; photos edited and processed by Christian Anderson.",
+    // rolodex = one photo per setting; shown as a flip-through stack on the category page. images = the full set.
+    rolodex: [
+      "images/impala64-promo-3-square.jpg",
+      "images/impala64-photoshoot-3.jpg",
+      "images/impala64-photoshoot-1.jpg",
+      "images/impala64-photoshoot-2.jpg"
+    ],
     images: [
-      "https://www.dropbox.com/scl/fi/4jdfx325rxmnpcqq31d3x/impala64_promo_photo3_square.jpg?rlkey=gwh1srqendilugry39w5z38d7&st=78mnxpy5&raw=1"
+      "images/impala64-promo-3-square.jpg",
+      "images/impala64-photoshoot-3.jpg",
+      "images/impala64-photoshoot-1.jpg",
+      "images/impala64-photoshoot-2.jpg",
+      "images/impala64-photoshoot-4.jpg",
+      "images/impala64-promo-1-square.jpg",
+      "images/impala64-promo-2-square.jpg",
+      "images/impala64-promo-3-story.jpg",
+      "images/impala64-promo-1-story.jpg",
+      "images/impala64-promo-2-story.jpg"
     ],
     videos: [],
-    folder: "https://www.dropbox.com/scl/fi/4jdfx325rxmnpcqq31d3x/impala64_promo_photo3_square.jpg?rlkey=gwh1srqendilugry39w5z38d7&st=78mnxpy5&dl=0"
+    folder: ""
+  },
+  {
+    id: "corporate-event-conference",
+    category: "Photography",
+    title: "Corporate Event — Conference & Team Portraits",
+    blurb: "Event coverage and team portraits from a corporate leadership conference.",
+    images: [
+      "images/corporate-event-2.jpg",
+      "images/corporate-event-1.jpg",
+      "images/corporate-event-3.jpg",
+      "images/corporate-event-4.jpg",
+      "images/corporate-event-5.jpg",
+      "images/corporate-team-portrait.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "lifestyle-festival-stadium",
+    category: "Photography",
+    title: "Lifestyle — Festival & Stadium",
+    blurb: "Lifestyle portraits shot on location at a festival campground and a stadium.",
+    images: [
+      "images/lifestyle-festival-fisheye.jpg",
+      "images/lifestyle-stadium.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "ookay-studio-shoot",
+    category: "Photography",
+    title: "Ookay — Studio Shoot",
+    blurb: "Studio portrait of Ookay.",
+    images: [
+      "images/ookay-studio-shoot.jpg"
+    ],
+    videos: [],
+    folder: ""
   },
   {
     id: "fisher-chris-lake-ad",
@@ -166,7 +197,7 @@ const WORKS = [
     id: "crssd-onsite-1",
     category: "Live event · On-site editing & Recaps",
     title: "Crssdfest 2026 — Day 1 Recap",
-    blurb: "Produced on-site for Crssdfest 2026.",
+    blurb: "Produced on-site for Crssdfest 2026. Lead editor: LJ. Assistant editor: Christian Anderson.",
     images: ["images/crssd-onsite-1.jpg"],
     videos: [
       { type: "video", url: "https://www.dropbox.com/scl/fi/kpp69hxoj049pk5jbvoxa/CRSSD-2026-DAY-1-on-site-edit.MP4?rlkey=c3f07rsji0bat2ug187iv5s5c&st=58py6gfi&raw=1" },
@@ -178,7 +209,7 @@ const WORKS = [
     id: "crssd-onsite-day2",
     category: "Live event · On-site editing & Recaps",
     title: "Crssdfest 2026 — Day 2 Recap",
-    blurb: "Produced on-site for Crssdfest 2026.",
+    blurb: "Produced on-site for Crssdfest 2026. Lead editor: LJ. Assistant editor: Christian Anderson.",
     images: ["images/crssd-onsite-day2.jpg"],
     videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/o9hcu5cbflwry32pld1n4/CRSSD-2026-DAY-2-on-site-edit.MP4?rlkey=cstxl5fddmdt2zurgh9aifzb8&st=0heglox2&raw=1" }],
     folder: ""
@@ -409,6 +440,24 @@ const WORKS = [
     folder: ""
   },
   {
+    id: "yt-bf6-r6-peeks",
+    category: "Personal · Gaming",
+    title: "R6 Peeks Meets BF6 — Operation Augur",
+    blurb: "Posted to YouTube.",
+    images: [],
+    videos: [{ type: "youtube", url: "https://www.youtube.com/shorts/Ka6Ho1dr5MQ" }],
+    folder: ""
+  },
+  {
+    id: "yt-rip-kid-mlg-edit",
+    category: "Personal · Other",
+    title: "Rest in Peace Kid — MLG Edit",
+    blurb: "Posted to YouTube.",
+    images: [],
+    videos: [{ type: "youtube", url: "https://youtu.be/9Jq3GB8tm_E" }],
+    folder: ""
+  },
+  {
     id: "tiktok-cod-mw4-beta",
     category: "Personal · Gaming",
     title: "Call of Duty MW4 Beta",
@@ -421,117 +470,117 @@ const WORKS = [
     id: "tiktok-bf6-clip-1",
     category: "Personal · Gaming",
     title: "I Am Anti-Air (BF6)",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7594537171042831629?_r=1&_t=ZT-99ounTvrPjy" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-bf6-i-am-anti-air.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-bf6-i-am-anti-air.mp4", poster: "images/gaming-bf6-i-am-anti-air.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7594537171042831629?_r=1&_t=ZT-99ounTvrPjy" }],
     folder: ""
   },
   {
     id: "tiktok-bf6-clip-2",
     category: "Personal · Gaming",
     title: "BF6 — Attack Heli Run",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7575843545521605902?_r=1&_t=ZT-99ouqCnTnm1" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-bf6-attack-heli-run.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-bf6-attack-heli-run.mp4", poster: "images/gaming-bf6-attack-heli-run.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7575843545521605902?_r=1&_t=ZT-99ouqCnTnm1" }],
     folder: ""
   },
   {
     id: "tiktok-mw2-clip",
     category: "Personal · Gaming",
     title: "MW2 — Resurgence Warzone",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7341613210824379691?_r=1&_t=ZT-99ouz06atFG" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-mw2-resurgence.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-mw2-resurgence.mp4", poster: "images/gaming-mw2-resurgence.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7341613210824379691?_r=1&_t=ZT-99ouz06atFG" }],
     folder: ""
   },
   {
     id: "tiktok-resurgence-1",
     category: "Personal · Gaming",
     title: "Resurgence Warzone",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6921157736860323077?_r=1&_t=ZT-99ov2kPH2mU" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-resurgence-warzone.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-resurgence-warzone.mp4", poster: "images/gaming-resurgence-warzone.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6921157736860323077?_r=1&_t=ZT-99ov2kPH2mU" }],
     folder: ""
   },
   {
     id: "tiktok-resurgence-2",
     category: "Personal · Gaming",
-    title: "Resurgence Warzone",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920421012769099013?_r=1&_t=ZT-99ov6YyVPo6" }],
+    title: "Warzone Resurgence Plays",
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-resurgence-plays.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-resurgence-plays.mp4", poster: "images/gaming-resurgence-plays.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920421012769099013?_r=1&_t=ZT-99ov6YyVPo6" }],
     folder: ""
   },
   {
     id: "tiktok-resurgence-3",
     category: "Personal · Gaming",
-    title: "Resurgence Warzone",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920104040982482181?_r=1&_t=ZT-99ov8iP8jT4" }],
+    title: "Warzone Resurgence — Clutch for the Dub",
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-resurgence-clutch-for-the-dub.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-resurgence-clutch-for-the-dub.mp4", poster: "images/gaming-resurgence-clutch-for-the-dub.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920104040982482181?_r=1&_t=ZT-99ov8iP8jT4" }],
     folder: ""
   },
   {
     id: "tiktok-shipment-247",
     category: "Personal · Gaming",
     title: "Shipment 24/7",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6890463261209136390?_r=1&_t=ZT-99ovCXIEt4g" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-shipment-24-7.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-shipment-24-7.mp4", poster: "images/gaming-shipment-24-7.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6890463261209136390?_r=1&_t=ZT-99ovCXIEt4g" }],
     folder: ""
   },
   {
     id: "tiktok-verdansk-1",
     category: "Personal · Gaming",
-    title: "Warzone in Verdansk",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6875068799763090693?_r=1&_t=ZT-99ovEPibaT0" }],
+    title: "Warzone in Verdansk — Squad Plays",
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-verdansk-squad-plays.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-verdansk-squad-plays.mp4", poster: "images/gaming-verdansk-squad-plays.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6875068799763090693?_r=1&_t=ZT-99ovEPibaT0" }],
     folder: ""
   },
   {
     id: "tiktok-verdansk-funny-wipe",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — Funny Squad Wipe",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6875002921596046597?_r=1&_t=ZT-99ovEb3PqQf" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-verdansk-funny-squad-wipe.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-verdansk-funny-squad-wipe.mp4", poster: "images/gaming-verdansk-funny-squad-wipe.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6875002921596046597?_r=1&_t=ZT-99ovEb3PqQf" }],
     folder: ""
   },
   {
     id: "tiktok-verdansk-gulag-spawn",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — How to Quickly Spawn in the Gulag",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6865463256207740166?_r=1&_t=ZT-99ovHYea4TO" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-verdansk-gulag-spawn.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-verdansk-gulag-spawn.mp4", poster: "images/gaming-verdansk-gulag-spawn.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6865463256207740166?_r=1&_t=ZT-99ovHYea4TO" }],
     folder: ""
   },
   {
     id: "tiktok-verdansk-toxic",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — How to Be Toxic",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6858830491697548549?_r=1&_t=ZT-99ovMXySL42" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-verdansk-how-to-be-toxic.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-verdansk-how-to-be-toxic.mp4", poster: "images/gaming-verdansk-how-to-be-toxic.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6858830491697548549?_r=1&_t=ZT-99ovMXySL42" }],
     folder: ""
   },
   {
     id: "tiktok-verdansk-semtex-wipe",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — Semtex Squad Wipe",
-    blurb: "Posted to TikTok.",
-    images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6828421883113901317?_r=1&_t=ZT-99ovOW3wMWM" }],
+    blurb: "Also posted to TikTok.",
+    images: ["images/gaming-verdansk-semtex-quad-wipe.jpg"],
+    videos: [{ type: "video", url: "videos/gaming-verdansk-semtex-quad-wipe.mp4", poster: "images/gaming-verdansk-semtex-quad-wipe.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6828421883113901317?_r=1&_t=ZT-99ovOW3wMWM" }],
     folder: ""
   },
   {
     id: "tiktok-verdansk-lmg-wipe",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — When in Doubt, LMG It Out (Crazy Squad Wipe)",
-    blurb: "Posted to TikTok.",
+    blurb: "Posted to YouTube and TikTok.",
     images: [],
-    videos: [{ type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6819805660931181829?_r=1&_t=ZT-99ovQBQBoQH" }],
+    videos: [{ type: "youtube", url: "https://www.youtube.com/shorts/BFs6LcgU3js" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6819805660931181829?_r=1&_t=ZT-99ovQBQBoQH" }],
     folder: ""
   },
   {
@@ -640,6 +689,270 @@ const WORKS = [
     blurb: "Live performance coverage at The Torch in LA.",
     images: ["images/lupe-fuentes-torch-la.jpg"],
     videos: [{ type: "video", url: "https://www.dropbox.com/scl/fi/20vgel3sedsum1jqt567l/Lupe-Fuentes-1.mp4?rlkey=lbpjvy7nm5m08lygt3dtk90cf&st=l3nwwusa&raw=1" }],
+    folder: ""
+  },
+  {
+    id: "hot-since-82-framework-kneedeep",
+    featured: true,
+    featuredLink: true,
+    category: "Performance · Photography",
+    title: "Hot Since 82 — Framework x Knee Deep, LA",
+    blurb: "Performance photography of Hot Since 82 at a Framework x Knee Deep show in LA.",
+    images: [
+      "images/hot-since-82-framework-kneedeep-1.jpg",
+      "images/hot-since-82-framework-kneedeep-2.jpg",
+      "images/hot-since-82-framework-kneedeep-3.jpg",
+      "images/hot-since-82-framework-kneedeep-4.jpg",
+      "images/hot-since-82-framework-kneedeep-5.jpg",
+      "images/hot-since-82-framework-kneedeep-6.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "hot-since-82-framework",
+    category: "Performance · Photography",
+    title: "Hot Since 82 — Framework",
+    blurb: "Stage, crowd and booth coverage of Hot Since 82 at Framework.",
+    images: [
+      "images/hot-since-82-framework-1.jpg",
+      "images/hot-since-82-framework-2.jpg",
+      "images/hot-since-82-framework-3.jpg",
+      "images/hot-since-82-framework-4.jpg",
+      "images/hot-since-82-framework-5.jpg",
+      "images/hot-since-82-framework-6.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "knee-deep-x-framework",
+    category: "Performance · Photography",
+    title: "Knee Deep x Framework, LA",
+    blurb: "Performance photography from a Knee Deep x Framework show in LA.",
+    images: [
+      "images/knee-deep-x-framework-1.jpg",
+      "images/knee-deep-x-framework-2.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "gordo-framework-pershing-square",
+    category: "Performance · Photography",
+    title: "Gordo — Framework, Pershing Square",
+    blurb: "Night-set pyro and stage coverage of Gordo at Framework, Pershing Square.",
+    images: [
+      "images/gordo-framework-pershing-square-1.jpg",
+      "images/gordo-framework-pershing-square-2.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "dim-mak-pershing-square-2025",
+    category: "Performance · Photography",
+    title: "Dim Mak — Pershing Square 2025",
+    blurb: "Stage, crowd and backstage coverage of the Dim Mak event at Pershing Square, 2025.",
+    images: [
+      "images/dim-mak-pershing-square-2025-1.jpg",
+      "images/dim-mak-pershing-square-2025-2.jpg",
+      "images/dim-mak-pershing-square-2025-3.jpg",
+      "images/dim-mak-pershing-square-2025-4.jpg",
+      "images/dim-mak-pershing-square-2025-5.jpg",
+      "images/dim-mak-pershing-square-2025-6.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "diplo-highergound-la-photos",
+    category: "Performance · Photography",
+    title: "Diplo — HigherGround, LA",
+    blurb: "Telephoto portraits of Diplo through the crowd at HigherGround in LA.",
+    images: [
+      "images/diplo-highergound-la-photo-1.jpg",
+      "images/diplo-highergound-la-photo-2.jpg",
+      "images/diplo-highergound-la-photo-3.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "hugel-highergound-la-photos",
+    category: "Performance · Photography",
+    title: "Hugel — HigherGround, LA",
+    blurb: "Red-light portraits of Hugel at HigherGround in LA.",
+    images: [
+      "images/hugel-highergound-la-photo-1.jpg",
+      "images/hugel-highergound-la-photo-2.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "henry-fong-time-nightclub-photos",
+    category: "Performance · Photography",
+    title: "Henry Fong — Time Nightclub",
+    blurb: "Confetti and stage moments from Henry Fong at Time Nightclub.",
+    images: [
+      "images/henry-fong-time-nightclub-1.jpg",
+      "images/henry-fong-time-nightclub-2.jpg",
+      "images/henry-fong-time-nightclub-3.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "coachella-dolab-2026",
+    category: "Performance · Photography",
+    title: "Coachella — DoLab 2026",
+    blurb: "Fisheye wide of the DoLab stage at Coachella 2026.",
+    images: [
+      "images/coachella-dolab-2026.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "coachella-yuma-2026",
+    category: "Performance · Photography",
+    title: "Coachella — Yuma 2026",
+    blurb: "Fisheye wide of the Yuma tent at Coachella 2026.",
+    images: [
+      "images/coachella-yuma-2026.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "coachella-sahara-2026",
+    category: "Performance · Photography",
+    title: "Coachella — Sahara 2026",
+    blurb: "Fisheye wide of the Sahara tent mid-set at Coachella 2026.",
+    images: [
+      "images/coachella-sahara-2026.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "lightning-in-a-bottle-dolab",
+    category: "Performance · Photography",
+    title: "Lightning in a Bottle — DoLab",
+    blurb: "The DoLab stage at Lightning in a Bottle, packed in under the disco ball.",
+    images: [
+      "images/lightning-in-a-bottle-dolab.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "lucalush-litb",
+    category: "Performance · Photography",
+    title: "LucaLush — Lightning in a Bottle",
+    blurb: "Stills coverage across a full festival set, shot for artist promo use.",
+    images: [
+      "images/lucalush-litb-1.jpg",
+      "images/lucalush-litb-2.jpg"
+    ],
+    videos: [],
+    folder: "https://www.dropbox.com/scl/fo/sj1leor4miilkkk8fk3fs/AFrRfELAKAiwM40GQ1YJcL0?rlkey=aow8g8aqgeakkg6fceedlwg35&st=7qe4sshe&dl=0"
+  },
+  {
+    id: "freddy-lane-miami-music-week-2024",
+    category: "Performance · Photography",
+    title: "Freddy Lane — Miami Music Week 2024",
+    blurb: "Rooftop set coverage during Miami Music Week 2024.",
+    images: [
+      "images/freddy-lane-miami-music-week-2024-1.jpg",
+      "images/freddy-lane-miami-music-week-2024-2.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "laidback-luke-e11-miami-mmw-2025",
+    category: "Performance · Photography",
+    title: "Laidback Luke — E11 Miami, MMW 2025",
+    blurb: "Performance photography of Laidback Luke at E11 during Miami Music Week 2025.",
+    images: [
+      "images/laidback-luke-e11-miami-mmw-2025.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "steve-aoki-e11-miami-mmw-2025",
+    category: "Performance · Photography",
+    title: "Steve Aoki — E11 Miami, MMW 2025",
+    blurb: "Performance photography of Steve Aoki at E11 during Miami Music Week 2025.",
+    images: [
+      "images/steve-aoki-e11-miami-mmw-2025-1.jpg",
+      "images/steve-aoki-e11-miami-mmw-2025-2.jpg",
+      "images/steve-aoki-e11-miami-mmw-2025-3.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "laidback-luke-comic-con-2025",
+    category: "Performance · Photography",
+    title: "Laidback Luke — Comic-Con 2025",
+    blurb: "Backlit set portrait of Laidback Luke from Comic-Con 2025.",
+    images: [
+      "images/laidback-luke-comic-con-2025.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "lupe-fuentes-the-torch-photos",
+    category: "Performance · Photography",
+    title: "Lupe Fuentes — The Torch, LA",
+    blurb: "Performance photography of Lupe Fuentes at The Torch in LA.",
+    images: [
+      "images/lupe-fuentes-the-torch-1.jpg",
+      "images/lupe-fuentes-the-torch-2.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "mochakk-the-torch-photos",
+    category: "Performance · Photography",
+    title: "Mochakk — The Torch, LA",
+    blurb: "Performance photography of Mochakk at The Torch in LA.",
+    images: [
+      "images/mochakk-the-torch-1.jpg",
+      "images/mochakk-the-torch-2.jpg",
+      "images/mochakk-the-torch-3.jpg",
+      "images/mochakk-the-torch-4.jpg",
+      "images/mochakk-the-torch-5.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "chloe-caillet-the-torch",
+    category: "Performance · Photography",
+    title: "Chloe Caillet — The Torch, LA",
+    blurb: "A set under the Los Angeles Memorial Coliseum arch at The Torch.",
+    images: [
+      "images/chloe-caillet-the-torch.jpg"
+    ],
+    videos: [],
+    folder: ""
+  },
+  {
+    id: "martines-brothers-the-torch",
+    category: "Performance · Photography",
+    title: "Martines Brothers — The Torch, LA",
+    blurb: "Performance photography of the Martines Brothers at The Torch in LA.",
+    images: [
+      "images/martines-brothers-the-torch.jpg"
+    ],
+    videos: [],
     folder: ""
   },
   // Add more project objects here, following the same shape.
