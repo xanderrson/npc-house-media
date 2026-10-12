@@ -58,7 +58,7 @@ const WORKS = [
     title: "Woogie Stage — Lightning in a Bottle",
     blurb: "Same-day turnaround edits cut and delivered from a laptop at the stage.",
     images: [
-      "https://www.dropbox.com/scl/fi/fkr6pc77kv6bli75kqy8h/Lightning-in-a-Bottle-Woogie-Stage.jpg?rlkey=xy0xhyn5lg9b49csz1bldib9u&st=13eva84g&raw=1"
+      "images/lightning-in-a-bottle-dolab.jpg"
     ],
     videos: [],
     folder: "https://www.dropbox.com/scl/fo/8nymescozy6i6rhnqlpx7/AMWPmno475W8KkdO4KBbeLs?rlkey=7rxbaybgsor897bryz0hi4lv6&st=s9s8uisf&dl=0"
@@ -470,7 +470,7 @@ const WORKS = [
     id: "tiktok-bf6-clip-1",
     category: "Personal · Gaming",
     title: "I Am Anti-Air (BF6)",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-bf6-i-am-anti-air.jpg"],
     videos: [{ type: "video", url: "videos/gaming-bf6-i-am-anti-air.mp4", poster: "images/gaming-bf6-i-am-anti-air.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7594537171042831629?_r=1&_t=ZT-99ounTvrPjy" }],
     folder: ""
@@ -479,7 +479,7 @@ const WORKS = [
     id: "tiktok-bf6-clip-2",
     category: "Personal · Gaming",
     title: "BF6 — Attack Heli Run",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-bf6-attack-heli-run.jpg"],
     videos: [{ type: "video", url: "videos/gaming-bf6-attack-heli-run.mp4", poster: "images/gaming-bf6-attack-heli-run.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7575843545521605902?_r=1&_t=ZT-99ouqCnTnm1" }],
     folder: ""
@@ -488,7 +488,7 @@ const WORKS = [
     id: "tiktok-mw2-clip",
     category: "Personal · Gaming",
     title: "MW2 — Resurgence Warzone",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-mw2-resurgence.jpg"],
     videos: [{ type: "video", url: "videos/gaming-mw2-resurgence.mp4", poster: "images/gaming-mw2-resurgence.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/7341613210824379691?_r=1&_t=ZT-99ouz06atFG" }],
     folder: ""
@@ -497,7 +497,7 @@ const WORKS = [
     id: "tiktok-resurgence-1",
     category: "Personal · Gaming",
     title: "Resurgence Warzone",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-resurgence-warzone.jpg"],
     videos: [{ type: "video", url: "videos/gaming-resurgence-warzone.mp4", poster: "images/gaming-resurgence-warzone.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6921157736860323077?_r=1&_t=ZT-99ov2kPH2mU" }],
     folder: ""
@@ -506,25 +506,25 @@ const WORKS = [
     id: "tiktok-resurgence-2",
     category: "Personal · Gaming",
     title: "Warzone Resurgence Plays",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-resurgence-plays.jpg"],
-    videos: [{ type: "video", url: "videos/gaming-resurgence-plays.mp4", poster: "images/gaming-resurgence-plays.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920421012769099013?_r=1&_t=ZT-99ov6YyVPo6" }],
+    videos: [{ type: "video", url: "videos/gaming-resurgence-plays.mp4", poster: "images/gaming-resurgence-plays.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920104040982482181?_r=1&_t=ZT-99ov8iP8jT4" }],
     folder: ""
   },
   {
     id: "tiktok-resurgence-3",
     category: "Personal · Gaming",
     title: "Warzone Resurgence — Clutch for the Dub",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-resurgence-clutch-for-the-dub.jpg"],
-    videos: [{ type: "video", url: "videos/gaming-resurgence-clutch-for-the-dub.mp4", poster: "images/gaming-resurgence-clutch-for-the-dub.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920104040982482181?_r=1&_t=ZT-99ov8iP8jT4" }],
+    videos: [{ type: "video", url: "videos/gaming-resurgence-clutch-for-the-dub.mp4", poster: "images/gaming-resurgence-clutch-for-the-dub.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6920421012769099013?_r=1&_t=ZT-99ov6YyVPo6" }],
     folder: ""
   },
   {
     id: "tiktok-shipment-247",
     category: "Personal · Gaming",
     title: "Shipment 24/7",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-shipment-24-7.jpg"],
     videos: [{ type: "video", url: "videos/gaming-shipment-24-7.mp4", poster: "images/gaming-shipment-24-7.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6890463261209136390?_r=1&_t=ZT-99ovCXIEt4g" }],
     folder: ""
@@ -533,7 +533,7 @@ const WORKS = [
     id: "tiktok-verdansk-1",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — Squad Plays",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-verdansk-squad-plays.jpg"],
     videos: [{ type: "video", url: "videos/gaming-verdansk-squad-plays.mp4", poster: "images/gaming-verdansk-squad-plays.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6875068799763090693?_r=1&_t=ZT-99ovEPibaT0" }],
     folder: ""
@@ -542,7 +542,7 @@ const WORKS = [
     id: "tiktok-verdansk-funny-wipe",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — Funny Squad Wipe",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-verdansk-funny-squad-wipe.jpg"],
     videos: [{ type: "video", url: "videos/gaming-verdansk-funny-squad-wipe.mp4", poster: "images/gaming-verdansk-funny-squad-wipe.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6875002921596046597?_r=1&_t=ZT-99ovEb3PqQf" }],
     folder: ""
@@ -551,7 +551,7 @@ const WORKS = [
     id: "tiktok-verdansk-gulag-spawn",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — How to Quickly Spawn in the Gulag",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-verdansk-gulag-spawn.jpg"],
     videos: [{ type: "video", url: "videos/gaming-verdansk-gulag-spawn.mp4", poster: "images/gaming-verdansk-gulag-spawn.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6865463256207740166?_r=1&_t=ZT-99ovHYea4TO" }],
     folder: ""
@@ -560,7 +560,7 @@ const WORKS = [
     id: "tiktok-verdansk-toxic",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — How to Be Toxic",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-verdansk-how-to-be-toxic.jpg"],
     videos: [{ type: "video", url: "videos/gaming-verdansk-how-to-be-toxic.mp4", poster: "images/gaming-verdansk-how-to-be-toxic.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6858830491697548549?_r=1&_t=ZT-99ovMXySL42" }],
     folder: ""
@@ -569,7 +569,7 @@ const WORKS = [
     id: "tiktok-verdansk-semtex-wipe",
     category: "Personal · Gaming",
     title: "Warzone in Verdansk — Semtex Squad Wipe",
-    blurb: "Also posted to TikTok.",
+    blurb: "Posted to TikTok.",
     images: ["images/gaming-verdansk-semtex-quad-wipe.jpg"],
     videos: [{ type: "video", url: "videos/gaming-verdansk-semtex-quad-wipe.mp4", poster: "images/gaming-verdansk-semtex-quad-wipe.jpg" }, { type: "tiktok", url: "https://www.tiktok.com/@xanderson_24/video/6828421883113901317?_r=1&_t=ZT-99ovOW3wMWM" }],
     folder: ""
@@ -704,18 +704,7 @@ const WORKS = [
       "images/hot-since-82-framework-kneedeep-3.jpg",
       "images/hot-since-82-framework-kneedeep-4.jpg",
       "images/hot-since-82-framework-kneedeep-5.jpg",
-      "images/hot-since-82-framework-kneedeep-6.jpg"
-    ],
-    videos: [],
-    folder: ""
-  },
-  {
-    id: "hot-since-82-framework",
-    category: "Performance · Photography",
-    title: "Hot Since 82 — Framework",
-    blurb: "Stage, crowd and booth coverage of Hot Since 82 at Framework.",
-    images: [
-      "images/hot-since-82-framework-1.jpg",
+      "images/hot-since-82-framework-kneedeep-6.jpg",
       "images/hot-since-82-framework-2.jpg",
       "images/hot-since-82-framework-3.jpg",
       "images/hot-since-82-framework-4.jpg",
@@ -925,11 +914,11 @@ const WORKS = [
     blurb: "Performance photography of Mochakk at The Torch in LA.",
     images: [
       "images/mochakk-the-torch-1.jpg",
-      "images/mochakk-the-torch-2.jpg",
       "images/mochakk-the-torch-3.jpg",
       "images/mochakk-the-torch-4.jpg",
       "images/mochakk-the-torch-5.jpg",
-      "images/mochakk-the-torch-6.jpg"
+      "images/mochakk-the-torch-6.jpg",
+      "images/mochakk-the-torch-2.jpg"
     ],
     videos: [],
     folder: ""

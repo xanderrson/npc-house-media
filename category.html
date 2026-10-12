@@ -431,13 +431,14 @@
       return '';
       }).join('');
     }
-    if (w.rolodex && w.rolodex.length > 1){
+    const stack = (w.rolodex && w.rolodex.length > 1) ? w.rolodex : ((w.images && w.images.length > 1) ? w.images : null);
+    if (stack){
       return `<div class="rolo" id="rolo">
         <div class="rolo-stage" id="rolo-stage">
-          ${w.rolodex.map((src, i) => `<div class="rolo-card" data-i="${i}"><img src="${src}" alt="${w.title}"></div>`).join('')}
+          ${stack.map((src, i) => `<div class="rolo-card" data-i="${i}"><img src="${src}" alt="${w.title}"></div>`).join('')}
         </div>
         <div class="rolo-meta">
-          <span id="rolo-count">1 / ${w.rolodex.length} &middot; click to flip</span>
+          <span id="rolo-count">1 / ${stack.length} &middot; click to flip</span>
           <span class="rolo-btns"><button id="rolo-prev" aria-label="Previous photo">&lsaquo;</button><button id="rolo-next" aria-label="Next photo">&rsaquo;</button></span>
         </div>
       </div>`;
@@ -489,7 +490,8 @@
       <p>${w.blurb}</p>
       <a class="view-link" href="work.html?id=${encodeURIComponent(w.id)}">${(w.images && w.images.length > 1 && !(w.videos && w.videos.length)) ? `View all ${w.images.length} photos` : 'View full credit'} &rarr;</a>
     `;
-    if (w.rolodex && w.rolodex.length > 1 && !(w.videos && w.videos.length)) initRolodex(w.rolodex.length);
+    const stackN = (w.rolodex && w.rolodex.length > 1) ? w.rolodex.length : ((w.images && w.images.length > 1) ? w.images.length : 0);
+    if (stackN && !(w.videos && w.videos.length)) initRolodex(stackN);
     document.getElementById('scrim').classList.add('open');
     document.getElementById('spotlight').classList.add('open');
   }

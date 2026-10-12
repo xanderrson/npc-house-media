@@ -280,6 +280,10 @@
       byCategory[w.category].push(w);
     });
 
+    // display order: Photography first, then Performance · Photography; Gaming then Personal · Other at the very bottom
+    const rank = cat => cat === 'Photography' ? 0 : cat === 'Performance · Photography' ? 1 : cat === 'Personal · Gaming' ? 98 : cat === 'Personal · Other' ? 99 : 50;
+    order.sort((a, b) => rank(a) - rank(b));
+
     renderTabs(order);
 
     const categoriesToShow = activeCategory === 'All' ? order : [activeCategory];
