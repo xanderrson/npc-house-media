@@ -909,8 +909,8 @@ const WORKS = [
   {
     id: "lupe-fuentes-the-torch-photos",
     category: "Performance · Photography",
-    title: "Lupe Fuentes — The Torch, LA",
-    blurb: "Performance photography of Lupe Fuentes at The Torch in LA.",
+    title: "Lupe Fuentes",
+    blurb: "Performance photography of Lupe Fuentes.",
     images: [
       "images/lupe-fuentes-the-torch-1.jpg",
       "images/lupe-fuentes-the-torch-2.jpg"
@@ -928,7 +928,8 @@ const WORKS = [
       "images/mochakk-the-torch-2.jpg",
       "images/mochakk-the-torch-3.jpg",
       "images/mochakk-the-torch-4.jpg",
-      "images/mochakk-the-torch-5.jpg"
+      "images/mochakk-the-torch-5.jpg",
+      "images/mochakk-the-torch-6.jpg"
     ],
     videos: [],
     folder: ""
