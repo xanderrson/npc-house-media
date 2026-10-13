@@ -715,18 +715,6 @@ const WORKS = [
     folder: ""
   },
   {
-    id: "knee-deep-x-framework",
-    category: "Performance · Photography",
-    title: "Knee Deep x Framework, LA",
-    blurb: "Performance photography from a Knee Deep x Framework show in LA.",
-    images: [
-      "images/knee-deep-x-framework-1.jpg",
-      "images/knee-deep-x-framework-2.jpg"
-    ],
-    videos: [],
-    folder: ""
-  },
-  {
     id: "gordo-framework-pershing-square",
     category: "Performance · Photography",
     title: "Gordo — Framework, Pershing Square",

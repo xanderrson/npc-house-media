@@ -280,8 +280,18 @@
       byCategory[w.category].push(w);
     });
 
-    // display order: Photography first, then Performance · Photography; Gaming then Personal · Other at the very bottom
-    const rank = cat => cat === 'Photography' ? 0 : cat === 'Performance · Photography' ? 1 : cat === 'Personal · Gaming' ? 98 : cat === 'Personal · Other' ? 99 : 50;
+    // display order on the All Work page
+    const ORDER = [
+      'Live event · On-site editing & Recaps',
+      'Performance · Video',
+      'Digital media',
+      'Photography',
+      'Performance · Photography',
+      'Brand / ads',
+      'Personal · Gaming',
+      'Personal · Other'
+    ];
+    const rank = cat => { const i = ORDER.indexOf(cat); return i === -1 ? 50 : i; };
     order.sort((a, b) => rank(a) - rank(b));
 
     renderTabs(order);
