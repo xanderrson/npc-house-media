@@ -719,7 +719,17 @@
 
   function renderWork(){
     const grid = document.getElementById('work-grid');
-    grid.innerHTML = WORKS.filter(w => w.featured).map(w => {
+    // order of the featured cards on the home page
+    const CARD_ORDER = [
+      'Live event · On-site editing & Recaps',
+      'Performance · Video',
+      'Performance · Photography',
+      'Digital media',
+      'Photography',
+      'Brand / ads'
+    ];
+    const cardRank = w => { const i = CARD_ORDER.indexOf(w.category); return i === -1 ? 99 : i; };
+    grid.innerHTML = WORKS.filter(w => w.featured).sort((a, b) => cardRank(a) - cardRank(b)).map(w => {
       const corners = '<span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>';
       const meta = `
         <div class="meta">

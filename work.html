@@ -106,8 +106,14 @@
     display:block;
   }
   /* photo sets: justified rows, every photo shown whole and every row filled edge to edge */
+  /* photo galleries break out of the narrow text column so the photos can fill the page */
+  .gallery.justified, .gallery.single{
+    width:min(1500px, 96vw);
+    position:relative; left:50%; transform:translateX(-50%);
+  }
+  .gallery.single{ text-align:center; }
   .gallery.justified{ display:block; }
-  .gallery.justified .jrow{ display:flex; gap:6px; margin-bottom:6px; }
+  .gallery.justified .jrow{ display:flex; gap:6px; margin-bottom:6px; justify-content:center; }
   .gallery.justified .shot{ flex:none; border:0; }
   .gallery.justified .shot img{ width:100%; height:100%; object-fit:cover; }
   /* a single photo: show it whole, sized to fit the screen */
@@ -269,7 +275,10 @@
   function initJustified(entry){
     const g = document.getElementById('jgal');
     if (!g) return;
-    const GAP = 6, TARGET = 300;
+    const GAP = 6;
+    const vh = window.innerHeight || 800;
+    const TARGET = Math.max(300, Math.min(480, Math.round(vh * 0.5)));
+    const CAP = Math.round(vh * 0.85);
     const items = entry.images.map(src => {
       const el = document.createElement('div');
       el.className = 'shot';
@@ -303,9 +312,8 @@
       });
       if (row.length){
         const gaps = GAP * (row.length - 1);
-        // a short last row stretches to fill the width unless it would blow up tiny
-        const h = (sum * TARGET + gaps >= W * 0.7) ? (W - gaps) / sum : TARGET;
-        emit(row, sum, Math.min(h, TARGET * 1.45));
+        // last row: stretch to fill the width, but never taller than the screen
+        emit(row, sum, Math.min((W - gaps) / sum, CAP));
       }
     }
     let pending = items.length;
